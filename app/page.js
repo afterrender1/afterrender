@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import VortexWithHero from "@/components/VortexWithHero";
 import { AnimatedTestimonials } from "@/components/Testimonials";
 import Footer from "@/components/Footer"
+import {InfiniteMovingCards} from "@/components/DigitalSolutions"
 
 export default function Home() {
   const [active, setActive] = useState(null);
@@ -24,6 +25,67 @@ export default function Home() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [paused]);
+
+//   const testimonialItems = [
+//   {
+//     name: "Alice Johnson",
+//     title: "CEO | Tech Innovations",
+//     quote: "Working with this team was an absolute pleasure. Their creativity and attention to detail are unmatched.",
+//   },
+//   {
+//     name: "Brian Lee",
+//     title: "Product Manager | StartupX",
+//     quote: "They delivered exceptional results quickly. Highly recommend their services!",
+//   },
+//   {
+//     name: "Carla Smith",
+//     title: "Marketing Director | GreenWorld",
+//     quote: "A talented and professional team that consistently exceeds expectations.",
+//   },
+//   {
+//     name: "David Kim",
+//     title: "Founder | Innovate Labs",
+//     quote: "Their approach to design and motion is both innovative and user-friendly.",
+//   },
+//   {
+//     name: "Elena Garcia",
+//     title: "Lead Designer | Creative Co.",
+//     quote: "Creative, fast, and highly professional. Truly a pleasure to collaborate with.",
+//   },
+//   {
+//     name: "Frank Zhang",
+//     title: "CTO | FutureTech",
+//     quote: "The level of detail and polish they put into their work is remarkable.",
+//   },
+// ];
+// cards data
+const cards = [
+  {
+    name: "Documentary Video",
+    title: "Professional Production",
+    quote: "High-quality documentary shoots and editing.",
+    bg: "/Documentry-Video.png",
+  },
+  {
+    name: "Taking Head Video",
+    title: "Corporate & Personal",
+    quote: "Creative headshots and talking head videos.",
+    bg: "/Talking-Head.png",
+  },
+  {
+    name: "Podcast Video",
+    title: "Engaging & Professional",
+    quote: "Record, edit, and produce high-quality podcasts.",
+    bg: "/Podcast-Video.png",
+  },
+  {
+    name: "Reel",
+    title: "Social Media Ready",
+    quote: "Dynamic reels for Instagram, TikTok, and more.",
+    bg: "/Reels.png",
+  },
+];
+
 
   return (
     <>
@@ -102,6 +164,9 @@ export default function Home() {
         ]}
         autoplay
       />
+
+     <InfiniteMovingCards items={cards}  direction="left" speed="normal" pauseOnHover={true} />
+
       <Footer/>
     </>
   );

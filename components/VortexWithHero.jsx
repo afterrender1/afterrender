@@ -150,7 +150,9 @@ export default function VortexWithHero() {
           transition={{ duration: 0.6, delay: 1.2 }}
           className="mt-20 w-full rounded-3xl border border-purple-300 bg-gradient-to-b from-purple-50 to-white p-3 shadow-2xl"
         >
+          
           <div className="w-full overflow-hidden rounded-2xl border border-purple-200">
+            
             <video
               autoPlay
               loop

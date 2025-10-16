@@ -88,10 +88,10 @@ export const Menu = ({ setActive, children }) => {
       <div className="hidden md:flex items-center space-x-2">
      
 <button
-  className={`${poppins.className}  relative group text-white transition-all flex items-center justify-center whitespace-nowrap rounded-lg hover:rotate-[3deg] will-change-transform duration-300 shadow-lg hover:shadow-xl h-14 text-base cursor-pointer pl-[4rem] pr-6 bg-green-600 shadow-yellow-400/30 hover:shadow-yellow-400/30`}
+  className={`${poppins.className}  relative group text-white transition-all flex items-center justify-center whitespace-nowrap rounded-lg hover:rotate-[3deg] will-change-transform duration-300 shadow-lg hover:shadow-xl h-14 text-base cursor-pointer pl-[4rem] border pr-6 bg-purple-600 shadow-red-400/30 hover:shadow-red-400/30`}
 >
   <div
-    className="absolute left-0 top-0 mt-2 ml-1 bg-white text-slate-950 p-[0.35rem] bottom-1 group-hover:w-[calc(100%-0.5rem)] transition-all rounded-md duration-300 h-10 w-10"
+    className="absolute left-0 top-0 mt-2 ml-2 bg-white text-slate-950 p-[0.35rem] bottom-1 group-hover:w-[calc(100%-0.9rem)] transition-all rounded-md duration-300 h-10 w-10"
   >
 <svg
   xmlns="http://www.w3.org/2000/svg"
@@ -119,7 +119,7 @@ export const Menu = ({ setActive, children }) => {
   <div>Get Started</div>
 
   <div
-    className="bg-orange-400 absolute flex rounded-full animate-ping opacity-75 h-5 w-5 -top-2 -right-2"
+    className="bg-orange-400 absolute flex rounded-full animate-ping opacity-75 h-5 w-5 -top-2 -right-"
   ></div>
   <div
     className="bg-orange-600 absolute flex rounded-full scale-[90%] h-5 w-5 -top-2 -right-2"

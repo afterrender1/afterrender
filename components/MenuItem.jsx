@@ -88,7 +88,7 @@ export const Menu = ({ setActive, children }) => {
       <div className="hidden md:flex items-center space-x-2">
      
 <button
-  className={`${poppins.className} relative group text-white transition-all flex items-center justify-center whitespace-nowrap rounded-lg hover:rotate-[3deg] will-change-transform duration-300 shadow-lg hover:shadow-xl h-14 text-base cursor-pointer pl-[4rem] pr-6 bg-red-600 shadow-yellow-400/30 hover:shadow-yellow-400/30`}
+  className={`${poppins.className}  relative group text-white transition-all flex items-center justify-center whitespace-nowrap rounded-lg hover:rotate-[3deg] will-change-transform duration-300 shadow-lg hover:shadow-xl h-14 text-base cursor-pointer pl-[4rem] pr-6 bg-green-600 shadow-yellow-400/30 hover:shadow-yellow-400/30`}
 >
   <div
     className="absolute left-0 top-0 mt-2 ml-1 bg-white text-slate-950 p-[0.35rem] bottom-1 group-hover:w-[calc(100%-0.5rem)] transition-all rounded-md duration-300 h-10 w-10"

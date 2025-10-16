@@ -60,20 +60,20 @@ export const Menu = ({ setActive, children }) => {
   return (
     <nav
       onMouseLeave={() => setActive(null)}
-      className="relative flex flex-wrap items-center justify-around rounded-b-4xl px-6 py-4 bg-purple-700 text-white shadow-lg border border-transparent dark:border-white/[0.2]"
+      className="relative z-[100] flex flex-wrap items-center justify-around rounded-b-4xl px-6 py-4 bg-gradient-to-br from-purple-600 via-purple-700 to-purple-500 animate-gradient-x text-white shadow-lg border border-transparent dark:border-white/[0.2]"
     >
       {/* Left — Logo */}
       <div className="flex items-center gap-2">
         <Image
-          src="/afterrenderlogo.png"
+          src="/arlogo.png"
           alt="Logo"
-          width={45}
+          width={32}
           height={30}
           style={{ height: "auto", width: "auto" }}
           priority
         />
         <span
-          className={`${poppins.className} text-xl font-semibold tracking-wide`}
+          className={`${poppins.className} text-2xl font-semibold tracking-wide`}
         >
           AfterRender
         </span>
@@ -86,13 +86,50 @@ export const Menu = ({ setActive, children }) => {
 
       {/* Right — Button */}
       <div className="hidden md:flex items-center space-x-2">
-        <button className="bg-white text-purple-700 px-4 py-2 rounded-full font-medium hover:bg-purple-100 transition">
-          Get Start
-        </button>
+     
+<button
+  className={`${poppins.className} relative group text-white transition-all flex items-center justify-center whitespace-nowrap rounded-lg hover:rotate-[3deg] will-change-transform duration-300 shadow-lg hover:shadow-xl h-14 text-base cursor-pointer pl-[4rem] pr-6 bg-red-600 shadow-yellow-400/30 hover:shadow-yellow-400/30`}
+>
+  <div
+    className="absolute left-0 top-0 mt-2 ml-1 bg-white text-slate-950 p-[0.35rem] bottom-1 group-hover:w-[calc(100%-0.5rem)] transition-all rounded-md duration-300 h-10 w-10"
+  >
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  strokeWidth="2"
+  strokeLinecap="round"
+  strokeLinejoin="round"
+  className="h-full w-full"
+>
+  <path d="M10 8h.01" />
+  <path d="M12 12h.01" />
+  <path d="M14 8h.01" />
+  <path d="M16 12h.01" />
+  <path d="M18 8h.01" />
+  <path d="M6 8h.01" />
+  <path d="M7 16h10" />
+  <path d="M8 12h.01" />
+  <rect width="20" height="16" x="2" y="4" rx="2" />
+</svg>
+
+  </div>
+
+  <div>Get Started</div>
+
+  <div
+    className="bg-orange-400 absolute flex rounded-full animate-ping opacity-75 h-5 w-5 -top-2 -right-2"
+  ></div>
+  <div
+    className="bg-orange-600 absolute flex rounded-full scale-[90%] h-5 w-5 -top-2 -right-2"
+  ></div>
+</button>
+
       </div>
 
       {/* Mobile Menu Toggle */}
-      <div className="md:hidden flex items-center">
+      <div className="md:hidden flex items-center relative z-[150]">
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="text-white focus:outline-none"
@@ -137,7 +174,7 @@ export const Menu = ({ setActive, children }) => {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="md:hidden absolute top-full left-0 w-full bg-purple-800 text-white shadow-lg rounded-b-2xl px-6 py-4 flex flex-col space-y-4 z-50"
+          className="md:hidden absolute top-full left-0 w-full bg-purple-800 text-white shadow-lg rounded-b-2xl px-6 py-4 flex flex-col space-y-4 z-[200]"
         >
           {children}
           <button className="bg-white text-purple-700 px-4 py-2 rounded-full font-medium hover:bg-purple-100 transition">

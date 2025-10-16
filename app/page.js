@@ -1,8 +1,9 @@
 "use client"
 import Image from "next/image";
-// import Navbar from "./components/Navbar";
 import { Menu, MenuItem, ProductItem, HoveredLink } from "@/components/MenuItem";
+import Hero from "@/components/Hero"
 import { useState } from "react";
+
 
 export default function Home() {
   const [active, setActive] = useState(null);
@@ -10,7 +11,7 @@ export default function Home() {
 
   return (
    <>
-   <Menu setActive={setActive}>
+   <Menu setActive={setActive} >
           <MenuItem setActive={setActive} active={active} item="Pricing">
             <div className="grid grid-cols-2 gap-6 p-4">
               <ProductItem
@@ -58,6 +59,8 @@ export default function Home() {
           </MenuItem>
         </Menu>
    {/* <Navbar/> */}
+   <Hero/>
+
 
    </>
   );

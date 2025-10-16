@@ -3,6 +3,8 @@ import Image from "next/image";
 import { Menu, MenuItem, ProductItem, HoveredLink } from "@/components/MenuItem";
 import Hero from "@/components/Hero"
 import { useState } from "react";
+import VortexWithHero from "@/components/VortexWithHero";
+
 
 
 export default function Home() {
@@ -59,8 +61,8 @@ export default function Home() {
           </MenuItem>
         </Menu>
    {/* <Navbar/> */}
-   <Hero/>
-
+   {/* <Hero/> */}
+   <VortexWithHero/>
 
    </>
   );

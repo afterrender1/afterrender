@@ -60,10 +60,10 @@ export const Menu = ({ setActive, children }) => {
   return (
     <nav
       onMouseLeave={() => setActive(null)}
-      className="relative z-[100] flex flex-wrap items-center justify-around rounded-b-4xl px-6 py-4 bg-gradient-to-br from-purple-600 via-purple-700 to-purple-500 animate-gradient-x text-white shadow-lg border border-transparent dark:border-white/[0.2]"
+      className="relative z-[100] flex flex-wrap items-center justify-around rounded-b-4xl px-6 py-3 bg-gradient-to-br from-purple-600 via-purple-700 to-purple-500 animate-gradient-x text-white shadow-lg border border-transparent dark:border-white/[0.2]"
     >
       {/* Left — Logo */}
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 cursor-pointer">
         <Image
           src="/arlogo.png"
           alt="Logo"

@@ -55,25 +55,32 @@ export default function HeroSection() {
         to life — design and deploy stunning web experiences in just minutes.
       </motion.p>
 
-      <motion.div
-        initial={{ opacity: 0, y: 15 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 1.2 }}
-        className="relative z-10 mt-20 w-full rounded-3xl border border-purple-300 bg-gradient-to-b from-purple-50 to-white p-3 shadow-2xl dark:from-purple-950 dark:to-purple-900 dark:border-purple-700"
-      >
-        <div className="w-full overflow-hidden rounded-2xl border border-purple-200 dark:border-purple-700">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="aspect-[16/9] h-auto w-full object-cover"
-          >
-            <source src="/herovideo.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </motion.div>
+ <motion.div
+  initial={{ opacity: 0, y: 15 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, delay: 1.2 }}
+  className="relative z-10 mt-20 w-full rounded-3xl border border-purple-300 
+             bg-gradient-to-b from-purple-50 to-white 
+             p-3 
+            shadow-[0_0_45px_rgba(168,85,247,0.45)]
+ 
+             dark:from-purple-950 dark:to-purple-900 
+             dark:border-purple-700"
+>
+  <div className="w-full overflow-hidden rounded-2xl border border-purple-200 dark:border-purple-700">
+    <video
+      autoPlay
+      loop
+      muted
+      playsInline
+      className="aspect-[16/9] h-auto w-full object-cover rounded-2xl"
+    >
+      <source src="/herovideo.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</motion.div>
+
     </div>
   );
 }

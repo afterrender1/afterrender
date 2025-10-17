@@ -6,6 +6,7 @@ import VortexWithHero from "@/components/VortexWithHero";
 import { AnimatedTestimonials } from "@/components/Testimonials";
 import Footer from "@/components/Footer"
 import {InfiniteMovingCards} from "@/components/DigitalSolutions"
+import { MacbookScroll } from "@/components/Macbookscroll";
 
 export default function Home() {
   const [active, setActive] = useState(null);
@@ -142,8 +143,8 @@ const cards = [
       </Menu>
 
       {/* ------------------- HERO + VORTEX ------------------- */}
-      <VortexWithHero paused={paused} /> {/* 👈 Pass the paused state */}
-
+      {/* <VortexWithHero paused={paused} />  */}
+<MacbookScroll src={"herovideo.mp4"}/>
       {/* ------------------- TESTIMONIALS ------------------- */}
       <AnimatedTestimonials
         testimonials={[

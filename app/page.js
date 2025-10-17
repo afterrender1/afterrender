@@ -7,6 +7,7 @@ import { AnimatedTestimonials } from "@/components/Testimonials";
 import Footer from "@/components/Footer"
 import {InfiniteMovingCards} from "@/components/DigitalSolutions"
 import { MacbookScroll } from "@/components/Macbookscroll";
+import AnimatedLogoShowcase from "@/components/AnimatedLogoShowcase";
 
 export default function Home() {
   const [active, setActive] = useState(null);
@@ -90,7 +91,7 @@ const cards = [
 
   return (
     <>
-      {/* ------------------- MENU ------------------- */}
+   
       <Menu setActive={setActive}>
         <MenuItem setActive={setActive} active={active} item="Pricing">
           <div className="grid grid-cols-2 gap-6 p-4">
@@ -142,10 +143,27 @@ const cards = [
         </MenuItem>
       </Menu>
 
-      {/* ------------------- HERO + VORTEX ------------------- */}
-      {/* <VortexWithHero paused={paused} />  */}
-<MacbookScroll src={"herovideo.mp4"}/>
-      {/* ------------------- TESTIMONIALS ------------------- */}
+<div
+  className="flex justify-around"
+  style={{
+    backgroundImage: "url('/bg.jpg')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  }}
+>
+<div className="mt-12">
+<AnimatedLogoShowcase/>
+
+</div>
+<div> <MacbookScroll src={"herovideo.mp4"}/></div>
+<div className="mt-12"> 
+<AnimatedLogoShowcase/>
+
+</div>
+
+</div>
+
       <AnimatedTestimonials
         testimonials={[
           {
@@ -165,7 +183,6 @@ const cards = [
         ]}
         autoplay
       />
-
      <InfiniteMovingCards items={cards}  direction="left" speed="normal" pauseOnHover={true} />
 
       <Footer/>

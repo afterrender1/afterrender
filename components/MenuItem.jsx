@@ -24,7 +24,7 @@ export const MenuItem = ({ setActive, active, item, children }) => {
     <div onMouseEnter={() => setActive(item)} className="relative">
       <motion.p
         transition={{ duration: 0.3 }}
-        className={`${poppins.className} cursor-pointer font-medium text-black hover:opacity-90 dark:text-white tracking-wide`}
+        className={`${poppins.className} cursor-pointer font-medium  hover:opacity-90  tracking-wide`}
       >
         {item}
       </motion.p>
@@ -53,6 +53,7 @@ export const MenuItem = ({ setActive, active, item, children }) => {
     </div>
   );
 };
+// bg-gradient-to-br from-purple-600 via-purple-700 to-purple-500 animate-gradient-x
 
 export const Menu = ({ setActive, children }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -60,7 +61,7 @@ export const Menu = ({ setActive, children }) => {
   return (
     <nav
       onMouseLeave={() => setActive(null)}
-      className="relative z-[100] flex flex-wrap items-center justify-around rounded-b-4xl px-6 py-3 bg-gradient-to-br from-purple-600 via-purple-700 to-purple-500 animate-gradient-x text-white shadow-lg border border-transparent dark:border-white/[0.2]"
+      className="relative z-[100] flex flex-wrap items-center justify-around bg-[#CBB6EF] rounded-b-4xl px-6 py-3 transparent text-black shadow-lg border border-transparent "
     >
       {/* Left — Logo */}
       <div className="flex items-center gap-2 cursor-pointer">
@@ -80,7 +81,7 @@ export const Menu = ({ setActive, children }) => {
       </div>
 
       {/* Center — Links (visible on md and up) */}
-      <div className="hidden md:flex flex-wrap justify-center gap-6">
+      <div className="hidden md:flex flex-wrap justify-center gap-6 text-black" style={{color: "bla"}}>
         {children}
       </div>
 

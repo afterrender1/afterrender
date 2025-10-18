@@ -61,10 +61,10 @@ export const Menu = ({ setActive, children }) => {
   return (
     <nav
       onMouseLeave={() => setActive(null)}
-      className="relative z-[100] flex flex-wrap items-center justify-around bg-[#CBB6EF] rounded-b-4xl px-6 py-3 transparent text-black shadow-lg border border-transparent "
+      className="relative z-[100] flex flex-wrap items-center justify-around  rounded-b-4xl px-6 py-3 transparent text-neutral-800  hover:scale-110 duration-400 "
     >
       {/* Left — Logo */}
-      <div className="flex items-center gap-2 cursor-pointer">
+      <div className="flex items-center gap-2 cursor-pointer hover:scale-110 duration-400">
         <Image
           src="/arlogo.png"
           alt="Logo"
@@ -89,10 +89,10 @@ export const Menu = ({ setActive, children }) => {
       <div className="hidden md:flex items-center space-x-2">
      
 <button
-  className={`${poppins.className}  relative group text-white transition-all flex items-center justify-center whitespace-nowrap rounded-lg hover:rotate-[3deg] will-change-transform duration-300 shadow-lg hover:shadow-xl h-14 text-base cursor-pointer pl-[4rem] border pr-6 bg-purple-600 shadow-red-400/30 hover:shadow-red-400/30`}
+  className={`${poppins.className}  relative group text-black transition-all flex items-center justify-center whitespace-nowrap rounded-lg hover:rotate-[3deg] will-change-transform duration-300 shadow-lg hover:shadow-xl h-14 text-base cursor-pointer pl-[4rem]  pr-6 bg-[#C0ABF0] shadow-purple-400/30 hover:shadow-purple-400/30`}
 >
   <div
-    className="absolute left-0 top-0 mt-2 ml-2 bg-white text-slate-950 p-[0.35rem] bottom-1 group-hover:w-[calc(100%-0.9rem)] transition-all rounded-md duration-300 h-10 w-10"
+    className="absolute left-0 top-0 mt-2 ml-2 bg-white text-black-600 p-[0.35rem] bottom-1 group-hover:w-[calc(100%-0.9rem)] transition-all rounded-md duration-300 h-10 w-10"
   >
 <svg
   xmlns="http://www.w3.org/2000/svg"
@@ -119,12 +119,6 @@ export const Menu = ({ setActive, children }) => {
 
   <div>Get Started</div>
 
-  <div
-    className="bg-orange-400 absolute flex rounded-full animate-ping opacity-75 h-5 w-5 -top-2 -right-"
-  ></div>
-  <div
-    className="bg-orange-600 absolute flex rounded-full scale-[90%] h-5 w-5 -top-2 -right-2"
-  ></div>
 </button>
 
       </div>
@@ -213,7 +207,7 @@ export const HoveredLink = ({ children, ...rest }) => {
   return (
     <a
       {...rest}
-      className="text-neutral-100 hover:text-white dark:text-neutral-200 transition-colors"
+      className="text-neutral-100 hover:text-white dark:text-neutral-200 transition-colors "
     >
       {children}
     </a>

@@ -23,6 +23,8 @@ import { IconWorld } from "@tabler/icons-react";
 import { IconCommand } from "@tabler/icons-react";
 import { IconCaretLeftFilled } from "@tabler/icons-react";
 import { IconCaretDownFilled } from "@tabler/icons-react";
+import { Heading } from "@/components/Heading";
+
 
 
 export const MacbookScroll = ({
@@ -47,15 +49,15 @@ export const MacbookScroll = ({
 
   const scaleX = useTransform(scrollYProgress, [0, 0.3], [1.2, isMobile ? 1 : 1.5]);
   const scaleY = useTransform(scrollYProgress, [0, 0.3], [0.6, isMobile ? 1 : 1.5]);
-  const translate = useTransform(scrollYProgress, [0, 1], [0, 1500]);
+  const translate = useTransform(scrollYProgress, [0, 1], [0, 480]);
   const rotate = useTransform(scrollYProgress, [0.1, 0.12, 0.3], [-28, -28, 0]);
-  const textTransform = useTransform(scrollYProgress, [0, 0.3], [0, 100]);
+  const textTransform = useTransform(scrollYProgress, [0, 0.3], [0, 300]);
   const textOpacity = useTransform(scrollYProgress, [0, 0.2], [1, 0]);
 
   return (
     <div
       ref={ref}
-      className="flex min-h-[200vh] shrink-0 scale-[0.35] transform flex-col items-center justify-start py-0 [perspective:800px] sm:scale-50 md:scale-100 md:py-40">
+      className="flex min-h-[170vh] shrink-0 scale-[0.35] transform flex-col items-center justify-start py-0 [perspective:800px] sm:scale-50 md:scale-110 md:py-20">
  
       {/* Lid */}
       <Lid
@@ -104,7 +106,12 @@ export const Lid = ({
   src
 }) => {
   return (
-    <div className="relative [perspective:800px]">
+    <>
+     <div className="">
+      <Heading text="Design. Animate. Launch. Instantly." />
+    </div>
+    <div className="relative [perspective:800px] mt-30">
+      
       <div
         style={{
           transform: "perspective(800px) rotateX(-25deg) translateZ(0px)",
@@ -134,15 +141,17 @@ export const Lid = ({
         className="absolute inset-0 h-96 w-[36rem] rounded-2xl bg-[#010101] p-2">
         <div className="absolute inset-0 rounded-lg bg-[#272729]" />
         <video
+        poster="/poster.png"
            autoPlay
               loop
-              muted
               playsInline
+              muted
           src={src}
           alt="aceternity logo"
           className="absolute inset-0 h-full w-full rounded-lg object-cover object-left-top" />
       </motion.div>
     </div>
+    </>
   );
 };
 

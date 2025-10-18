@@ -59,7 +59,7 @@ export default function AnimatedLogoShowcase() {
                 alt="logo"
                 width={30}
                 height={30}
-                className="object-contain md:w-[80px] md:h-[50px] w-[60px] h-[60px]"
+                className="object-contain  md:w-[80px] md:h-[50px] w-[60px] h-[60px]"
               />
             </motion.div>
           </motion.div>

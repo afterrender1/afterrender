@@ -13,6 +13,7 @@ import { motion } from "motion/react";
 import { Playfair_Display } from "next/font/google";
 
 import { Space_Grotesk } from "next/font/google";
+import StickyTextSection from "@/components/StickyTextSection";
 
 
 const spaceGrotesk = Space_Grotesk({
@@ -165,8 +166,9 @@ export default function Home() {
 
       {/* Moving Cards */}
       <InfiniteMovingCards items={cards} direction="left" speed="normal" pauseOnHover={true} />
+      <StickyTextSection/>
 
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

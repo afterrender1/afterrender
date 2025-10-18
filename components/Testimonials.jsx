@@ -84,35 +84,44 @@ export const AnimatedTestimonials = ({
         className="relative grid grid-cols-1 gap-20 md:grid-cols-2"
       >
         {/* Left Side (Images) */}
-        <div>
-          <div className="relative h-80 w-full">
-            <AnimatePresence>
-              {testimonials.map((testimonial, index) => (
-                <motion.div
-                  key={testimonial.src}
-                  initial={{ opacity: 0, scale: 0.9, z: -100, rotate: randomRotations[index] }}
-                  animate={{
-                    opacity: isActive(index) ? 1 : 0.7,
-                    scale: isActive(index) ? 1 : 0.95,
-                    z: isActive(index) ? 0 : -100,
-                    rotate: isActive(index) ? 0 : randomRotations[index],
-                    zIndex: isActive(index) ? 40 : testimonials.length + 2 - index,
-                    y: isActive(index) ? [0, -80, 0] : 0,
-                  }}
-                  transition={{ duration: 0.4, ease: "easeInOut" }}
-                  className="absolute inset-0 origin-bottom"
-                >
-                  <img
-                    src={testimonial.src}
-                    alt={testimonial.name}
-                    className="h-full w-full rounded-2xl object-contain object-center"
-                    draggable={false}
-                  />
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </div>
+   <div className="relative h-80 w-full flex items-center justify-center">
+  <AnimatePresence>
+    {testimonials.map((testimonial, index) => (
+      <motion.div
+        key={testimonial.src}
+        initial={{
+          opacity: 0,
+          scale: 0.9,
+          z: -100,
+          rotate: randomRotations[index],
+        }}
+        animate={{
+          opacity: isActive(index) ? 1 : 0.7,
+          scale: isActive(index) ? 1 : 0.95,
+          z: isActive(index) ? 0 : -100,
+          rotate: isActive(index) ? 0 : randomRotations[index],
+          zIndex: isActive(index)
+            ? 40
+            : testimonials.length + 2 - index,
+          y: isActive(index) ? [0, -40, 0] : 0, // subtle bounce
+        }}
+        exit={{ opacity: 0, scale: 0.8 }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+        className="absolute inset-0 flex items-center justify-center origin-bottom"
+      >
+        <div className="relative h-80 w-full max-w-md mx-auto overflow-hidden rounded-3xl shadow-2xl bg-white/5 backdrop-blur-md border border-white/10">
+          <img
+            src={testimonial.src}
+            alt={testimonial.name}
+            className="h-full w-full object-cover object-center rounded-3xl"
+            draggable={false}
+          />
         </div>
+      </motion.div>
+    ))}
+  </AnimatePresence>
+</div>
+
 
         {/* Right Side (Text) */}
         <div className="flex flex-col justify-between py-4 relative z-10">

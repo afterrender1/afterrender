@@ -23,9 +23,9 @@ export default function StickyTextSection() {
         <div className="md:col-span-1">
           <div className="md:sticky top-24">
             <p className="text-2xl mb-2">✌️ Explore Our Youtube Videos</p>
-            <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-neutral-900 dark:text-white leading-tight">
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-gray-800 leading-tight">
               We have <br />
-              <span className="text-purple-400">
+              <span className="text-[#6E11B0]">
                 THE BEST CONTENT FULFILMENT TEAM
               </span>
             </h2>

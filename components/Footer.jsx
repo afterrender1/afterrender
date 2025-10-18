@@ -1,86 +1,135 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 import Link from "next/link";
+import { Instagram, Youtube, Linkedin, Dribbble  } from "lucide-react";
+import { Space_Grotesk } from "next/font/google";
+
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+});
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="bg-gradient-to-br from-purple-600 via-purple-700 to-purple-500 animate-gradient-x text-white p-4 md:p-6 lg:p-8">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-6 text-center md:text-left">
-        {/* Logo and Contact Info */}
-        <div className="mb-4 md:mb-0">
-          <h3 className="text-xl font-bold mb-2">AfterRender</h3>
-          <p>71-75, Shelton Street, Covent Garden, London, WC2H 9JQ, UNITED KINGDOM</p>
-          <div className="flex justify-center md:justify-start space-x-2 mt-2">
-            <a href="#"><span>Be</span></a>
-            <a href="#"><span>fb</span></a>
-            <a href="#"><span>in</span></a>
-            <a href="#"><span>ig</span></a>
-            <a href="#"><span>yt</span></a>
+    <motion.footer
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      viewport={{ once: true }}
+      className={`${spaceGrotesk.className} relative text-gray-100 mt-8 border-t border-transparent bg-gradient-to-br from-gray-900/70 via-gray-950/60 to-gray-900/70 backdrop-blur-xl`}
+      style={{
+        borderImage:
+          "linear-gradient(to right, #a855f7, #ec4899) 1",
+      }}
+    >
+      <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        {/* --- Company --- */}
+        <div>
+          <h3 className="text-2xl font-bold text-white mb-3">AfterRender</h3>
+          <p className="text-gray-400 leading-relaxed mb-4">
+            Creative studio building digital experiences that inspire and convert.
+          </p>
+          <div className="flex space-x-4 mt-4">
+            {[
+              { Icon: Instagram, href: "https://instagram.com" },
+              { Icon: Youtube, href: "https://youtube.com" },
+              { Icon: Linkedin, href: "https://linkedin.com" },
+              { Icon: Dribbble , href: "https://behance.net" },
+            ].map(({ Icon, href }, i) => (
+              <motion.a
+                key={i}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.2, y: -2 }}
+                className="p-2 rounded-full bg-white/10 hover:bg-purple-600/30 transition"
+              >
+                <Icon className="w-5 h-5 text-purple-300" />
+              </motion.a>
+            ))}
           </div>
         </div>
 
-        {/* About Section */}
+        {/* --- Navigation --- */}
         <div>
-          <h4 className="text-lg font-semibold mb-2">About</h4>
-          <ul className="space-y-1">
-            <li><Link href="/about">About Us</Link></li>
-            <li><Link href="/portfolio">Portfolio</Link></li>
-            <li><Link href="/case-studies">Our Case Studies</Link></li>
-            <li><Link href="/careers">Careers</Link></li>
+          <h4 className="text-lg font-semibold text-white mb-4">Navigation</h4>
+          <ul className="space-y-2 text-gray-400">
+            {["Home", "Pricing", "Portfolio", "Blog", "Contact"].map(
+              (item, i) => (
+                <motion.li
+                  key={i}
+                  whileHover={{ x: 4 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Link
+                    href={`/${item.toLowerCase()}`}
+                    className="hover:text-purple-400 transition-colors"
+                  >
+                    {item}
+                  </Link>
+                </motion.li>
+              )
+            )}
           </ul>
         </div>
 
-        {/* Services Section */}
+        {/* --- Newsletter --- */}
+   <div>
+  <h4 className="text-lg font-semibold text-white mb-4">Stay Updated</h4>
+  <p className="text-gray-400 mb-4">
+    Subscribe to our newsletter for design tips, updates, and exclusive offers.
+  </p>
+
+  <motion.form
+    onSubmit={(e) => e.preventDefault()}
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+    viewport={{ once: true }}
+    className="flex flex-col sm:flex-row items-center bg-white/10 border border-white/10 rounded-2xl p-2 backdrop-blur-lg shadow-lg hover:shadow-purple-500/20 transition-all duration-300 w-full"
+  >
+    <input
+      type="email"
+      placeholder="Enter your email address"
+      className="flex-1 w-full bg-transparent text-sm px-4 py-3 text-white placeholder-gray-400 outline-none focus:ring-2 focus:ring-purple-500 focus:bg-white/5 rounded-xl sm:rounded-full transition-all duration-300"
+    />
+    <motion.button
+      type="submit"
+      whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(168,85,247,0.5)" }}
+      whileTap={{ scale: 0.97 }}
+      className="mt-3 sm:mt-0 sm:ml-3 w-full sm:w-auto bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-500 hover:to-purple-400 text-white font-semibold px-6 py-3 rounded-xl sm:rounded-full transition-all duration-300"
+    >
+      Subscribe
+    </motion.button>
+  </motion.form>
+
+  {/* Optional success message placeholder */}
+  <p className="text-xs text-gray-400 mt-3">
+    We respect your privacy. Unsubscribe anytime.
+  </p>
+</div>
+
+
+        {/* --- Contact / Address --- */}
         <div>
-          <h4 className="text-lg font-semibold mb-2">Services</h4>
-          <ul className="space-y-1">
-            <li><Link href="/hire-designer">Hire a Designer</Link></li>
-            <li><Link href="/no-code">No-code</Link></li>
-            <li><Link href="/time-material">Time and material</Link></li>
-            <li><Link href="/pricing">Pricing</Link></li>
+          <h4 className="text-lg font-semibold text-white mb-4">Contact</h4>
+          <ul className="space-y-2 text-gray-400">
+            <li>71-75 Shelton Street, London</li>
+            <li>contact@afterrender.com</li>
+            <li>+44 1183 282090</li>
           </ul>
         </div>
-
-        {/* Capabilities and Contact */}
-        <div className="space-y-4">
-          <div>
-            <h4 className="text-lg font-semibold mb-2">Capabilities</h4>
-            <ul className="space-y-1">
-              <li>Graphic Design</li>
-              <li>Motion Graphics</li>
-              <li>Infographic Design & Illustration</li>
-              <li>Brand Identity Design</li>
-              <li>UI/UX Design</li>
-              <li>App UI/UX Design</li>
-              <li>Website Design</li>
-            </ul>
-          </div>
-          <div>
-            <h4 className="text-lg font-semibold mb-2">Contact Us</h4>
-            <p>contact@duck.design</p>
-            <p>+1 267 799 1800</p>
-            <p>+44 1183 282090</p>
-            <button className="bg-yellow-400 text-gray-900 px-4 py-2 rounded mt-2">BOOK A CALL</button>
-          </div>
-        </div>
       </div>
 
-      {/* Bottom Section */}
-      <div className="mt-6 pt-4 border-t border-gray-700 text-center md:flex md:justify-between">
-        <div className="mb-2 md:mb-0">
-          <a href="/refund-policy">Refund Policy</a> | <a href="/privacy-policy">Privacy Policy</a> | <a href="/terms">Terms & Conditions</a>
-        </div>
-        <div className="flex justify-center md:justify-end space-x-4">
-          <a href="https://www.upwork.com" target="_blank">upwork</a>
-          <a href="https://clutch.co" target="_blank">Clutch</a>
-          <a href="https://sortlist.com" target="_blank">sortlist</a>
-          <a href="https://www.trustpilot.com" target="_blank">Trustpilot</a>
-        </div>
+      {/* --- Bottom Bar --- */}
+      <div className="border-t border-gray-700/50 text-center py-6 text-white text-sm">
+        © {currentYear} AfterRender. All rights reserved.
       </div>
-
-      <p className="text-center mt-4 text-sm">© 2025 DuckDesign. All Rights Reserved.</p>
-    </footer>
+    </motion.footer>
   );
 };
 

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { motion } from "motion/react";
 import { Poppins } from "next/font/google";
 import Image from "next/image";
+import Link from "next/link";
 
 const transition = {
   type: "spring",
@@ -64,6 +65,7 @@ export const Menu = ({ setActive, children }) => {
       className="relative z-[100] flex flex-wrap items-center justify-around  rounded-b-4xl px-6 py-3 transparent text-neutral-800  hover:scale-110 duration-400 "
     >
       {/* Left — Logo */}
+<Link href={"/"}>
       <div className="flex items-center gap-2 cursor-pointer hover:scale-110 duration-400">
         <Image
           src="/arlogo.png"
@@ -80,6 +82,8 @@ export const Menu = ({ setActive, children }) => {
         </span>
       </div>
 
+</Link>
+
       {/* Center — Links (visible on md and up) */}
       <div className="hidden md:flex flex-wrap justify-center gap-6 text-black" style={{color: "bla"}}>
         {children}
@@ -89,7 +93,7 @@ export const Menu = ({ setActive, children }) => {
       <div className="hidden md:flex items-center space-x-2">
      
 <button
-  className={`${poppins.className}  relative group text-black transition-all flex items-center justify-center whitespace-nowrap rounded-lg hover:rotate-[3deg] will-change-transform duration-300 shadow-lg hover:shadow-xl h-14 text-base cursor-pointer pl-[4rem]  pr-6 bg-[#C0ABF0] shadow-purple-400/30 hover:shadow-purple-400/30`}
+  className={`${poppins.className}  relative group text-black transition-all flex items-center justify-center whitespace-nowrap rounded-lg hover:rotate-[3deg] will-change-transform duration-300 shadow-lg hover:shadow-xl h-14 text-base cursor-pointer pl-[4rem]  pr-6 bg-[#ba9ffa] shadow-purple-400/30 hover:shadow-purple-400/30`}
 >
   <div
     className="absolute left-0 top-0 mt-2 ml-2 bg-white text-black-600 p-[0.35rem] bottom-1 group-hover:w-[calc(100%-0.9rem)] transition-all rounded-md duration-300 h-10 w-10"
@@ -183,7 +187,7 @@ export const Menu = ({ setActive, children }) => {
 
 export const ProductItem = ({ title, description, href, src }) => {
   return (
-    <a href={href} className="flex space-x-2">
+    <Link href={href} className="flex space-x-2">
       <img
         src={src}
         width={140}
@@ -199,7 +203,7 @@ export const ProductItem = ({ title, description, href, src }) => {
           {description}
         </p>
       </div>
-    </a>
+    </Link>
   );
 };
 

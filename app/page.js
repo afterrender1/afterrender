@@ -1,20 +1,19 @@
 "use client";
+
 import Image from "next/image";
-import { Menu, MenuItem, ProductItem, HoveredLink } from "@/components/MenuItem";
+import { Menu, MenuItem, ProductItem } from "@/components/MenuItem";
 import { useState, useEffect } from "react";
 import { AnimatedTestimonials } from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 import { InfiniteMovingCards } from "@/components/DigitalSolutions";
 import { MacbookScroll } from "@/components/Macbookscroll";
 import AnimatedLogoShowcase from "@/components/AnimatedLogoShowcase";
-
-import { Heading } from "@/components/Heading";
-import { motion } from "motion/react";
-import { Playfair_Display } from "next/font/google";
-
-import { Space_Grotesk } from "next/font/google";
 import StickyTextSection from "@/components/StickyTextSection";
-
+import StepSection from "@/components/Steps";
+import Link from "next/link";
+import { RiMoneyDollarCircleLine } from "react-icons/ri";
+import { motion } from "framer-motion";
+import { Playfair_Display, Space_Grotesk } from "next/font/google";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -27,22 +26,24 @@ const playfair = Playfair_Display({
   weight: ["400", "500", "600", "700"],
 });
 
-
 export default function Home() {
   const [active, setActive] = useState(null);
-  const [paused, setPaused] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
+  // Navbar toggle on scroll
   useEffect(() => {
     const handleScroll = () => {
-      const triggerPoint = 600;
-      if (window.scrollY > triggerPoint && !paused) {
-        setPaused(true);
-        setTimeout(() => setPaused(false), 1000);
+      if (window.scrollY > lastScrollY && window.scrollY > 80) {
+        setShowNavbar(false); // hide on scroll down
+      } else {
+        setShowNavbar(true); // show on scroll up
       }
+      setLastScrollY(window.scrollY);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [paused]);
+  }, [lastScrollY]);
 
   const cards = [
     {
@@ -52,7 +53,7 @@ export default function Home() {
       bg: "/Documentry-Video.png",
     },
     {
-      name: "Taking Head Video",
+      name: "Talking Head Video",
       title: "Corporate & Personal",
       quote: "Creative headshots and talking head videos.",
       bg: "/Talking-Head.png",
@@ -73,102 +74,129 @@ export default function Home() {
 
   return (
     <>
-      {/* Hero Section with background image */}
-      <div
-        className="relative w-full min-h-screen bg-cover bg-center"
-        style={{ backgroundImage: "url('/purple-bg.jpg')" }}
-      >
-        {/* Transparent Navigation */}
-        <div className="fixed top-0 left-0 w-full z-50">
-          <Menu setActive={setActive} className="bg-transparent backdrop-blur-md">
-            {/* Menu Items */}
+      {/* Hero Section */}
+      <div className="relative w-full min-h-screen  text-white overflow-hidden">
+        {/* Navbar (Animated hide/show on scroll) */}
+        <motion.div
+          initial={{ y: 0 }}
+          animate={{ y: showNavbar ? 0 : -100 }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
+          className="fixed top-0 left-0 w-full z-50"
+        >
+          <Menu setActive={setActive} className="bg-black/70 backdrop-blur-lg border-b border-white/10">
             <MenuItem setActive={setActive} active={active} item="Pricing">
-              <div className="grid grid-cols-2 gap-6 p-4">
+              <Link
+                href="/pricing"
+                className="text-white text-base font-semibold hover:text-purple-400 duration-300 p-5 transition flex items-center gap-2"
+              >
+                <RiMoneyDollarCircleLine size={22} /> Go to Pricing
+              </Link>
+            </MenuItem>
+
+            <MenuItem setActive={setActive} active={active} item="Capabilities">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-4">
                 <ProductItem
-                  title="Macbook Scroll"
+                  title="Video Editing"
                   description="Smooth scroll animation section."
-                  href="#macbook"
-                  src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=600&q=80"
+                  href="/video-editing"
+                  src="/images/video-editing-image.jpg"
                 />
                 <ProductItem
-                  title="3D Cards"
+                  title="Video Production"
                   description="Interactive 3D motion cards."
                   href="#cards"
-                  src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80"
+                  src="/images/video-production-image.jpg"
+                />
+                <ProductItem
+                  title="Website Development"
+                  description="Interactive 3D motion cards."
+                  href="#cards"
+                  src="/images/website-development-image.jpeg"
+                />
+                <ProductItem
+                  title="N8N Automation"
+                  description="Interactive 3D motion cards."
+                  href="#cards"
+                  src="/images/n8n-automation-image.jpg"
                 />
               </div>
             </MenuItem>
-            <MenuItem setActive={setActive} active={active} item="Capabilities">
-              <div className="flex flex-col space-y-2 p-4">
-                <HoveredLink href="https://nextjs.org">Next.js Docs</HoveredLink>
-                <HoveredLink href="https://tailwindcss.com">Tailwind CSS</HoveredLink>
-                <HoveredLink href="https://motion.dev">Motion React</HoveredLink>
-              </div>
-            </MenuItem>
+
             <MenuItem setActive={setActive} active={active} item="Our Works">
-              <div className="p-4 w-64 text-sm text-neutral-700 dark:text-neutral-300">
+              <div className="p-4 w-64 text-sm text-gray-300">
                 A modern interactive UI built with Next.js, Motion, and Tailwind CSS.
               </div>
             </MenuItem>
+
             <MenuItem setActive={setActive} active={active} item="Portfolio">
-              <div className="p-4 w-64 text-sm text-neutral-700 dark:text-neutral-300">
-                A modern interactive UI built with Next.js, Motion, and Tailwind CSS.
+              <div className="p-4 w-64 text-sm text-gray-300">
+                Explore our latest projects and collaborations.
               </div>
             </MenuItem>
-            <MenuItem setActive={setActive} active={active} item="Blog">
-              <div className="p-4 w-64 text-sm text-neutral-700 dark:text-neutral-300">
-                A modern interactive UI built with Next.js, Motion, and Tailwind CSS.
-              </div>
-            </MenuItem>
+
             <MenuItem setActive={setActive} active={active} item="Contact Us">
-              <div className="p-4 w-64 text-sm text-neutral-700 dark:text-neutral-300">
-                A modern interactive UI built with Next.js, Motion, and Tailwind CSS.
+              <div className="p-4 w-64 text-sm text-gray-300">
+                Get in touch for your next creative project.
               </div>
             </MenuItem>
           </Menu>
-        </div>
+        </motion.div>
 
-        {/* Main Hero Content */}
-    
-        <div className="flex justify-around pt-24 mx-16">
-          <div className="mt-35">
+        {/* Hero Grid */}
+        <div className="flex flex-col lg:flex-row justify-between items-center gap-10 px-6 sm:px-12 md:px-16 pt-40 md:pt-48">
+          <div className="hidden md:flex flex-1 justify-center">
             <AnimatedLogoShowcase />
           </div>
-          <div>
+
+          <div className="flex-1 w-full max-w-[700px] flex justify-center">
             <MacbookScroll src={"herovideo.mp4"} />
           </div>
-          <div className="mt-35">
+
+          <div className="hidden md:flex flex-1 justify-center">
             <AnimatedLogoShowcase />
           </div>
         </div>
       </div>
 
       {/* Testimonials */}
-      <AnimatedTestimonials
-        testimonials={[
-          {
-            name: "Mahmoud Khodur",
-            designation: "Head of Project | Stealth Startup",
-            quote:
-              "HE WAS GREAT AT STORY TELLING WAS VERY CREATIVE IN HIGHLIGHTING CERTAIN POINTS, HE HAS A TREMENDOUS OPPORTUNITY FOR GROWTH",
-            src: "/feedbackimg1.png",
-          },
-          {
-            name: "Lauren",
-            designation: "Founder | Regenerative Farmers of America",
-            quote:
-              "AFTERRENDER IS A DELIGHT TO WORK WITH, THEY MAKES GREAT VIDEOS AND IS QUICK TO RESPOND TO ANY CHANGES NEEDED, HIGHLY RECOMMEND! ",
-            src: "/feedbackimg2.png",
-          },
-        ]}
-        autoplay
-      />
+      <section className="px-4 sm:px-10 md:px-20 py-16  text-white">
+        <AnimatedTestimonials
+          testimonials={[
+            {
+              name: "Mahmoud Khodur",
+              designation: "Head of Project | Stealth Startup",
+              quote:
+                "He was great at storytelling, very creative in highlighting key points — tremendous potential for growth.",
+              src: "/feedbackimg1.png",
+            },
+            {
+              name: "Lauren",
+              designation: "Founder | Regenerative Farmers of America",
+              quote:
+                "AfterRender is a delight to work with — they make great videos and respond quickly to feedback. Highly recommend!",
+              src: "/feedbackimg2.png",
+            },
+          ]}
+          autoplay
+        />
+      </section>
 
       {/* Moving Cards */}
-      <InfiniteMovingCards items={cards} direction="left" speed="normal" pauseOnHover={true} />
-      <StickyTextSection/>
+      <section className="py-16 px-4 sm:px-10">
+        <InfiniteMovingCards
+          items={cards}
+          direction="left"
+          speed="normal"
+          pauseOnHover={true}
+        />
+      </section>
 
-      {/* <Footer /> */}
+      {/* Sticky + Steps */}
+      <StickyTextSection />
+      <StepSection />
+
+      {/* Footer */}
+      <Footer />
     </>
   );
 }

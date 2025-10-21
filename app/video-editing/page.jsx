@@ -68,7 +68,7 @@ export default function VideoEditingPage() {
                 <ProductItem
                   title="Social Media Presence"
                   description="Interactive 3D motion cards."
-                  href="#cards"
+                  href="/socialmediapresence"
                   src="/images/video-production-image.jpg"
                 />
                 <ProductItem

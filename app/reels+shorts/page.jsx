@@ -51,9 +51,9 @@ export default function ReelsShortsPage() {
           <MenuItem setActive={setActive} active={active} item="Capabilities">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-4">
               <ProductItem title="Video Editing" description="Professional short form edits." href="/video-editing" src="/images/video-editing-image.jpg" />
-              <ProductItem title="Social Media Presence" description="Creative Reels & Shorts." href="/video-production" src="/images/video-production-image.jpg" />
+              <ProductItem title="Social Media Presence" description="Creative Reels & Shorts." href="/socialmediapresence" src="/images/video-production-image.jpg" />
               <ProductItem title="Website Development" description="Interactive web solutions." href="/website-development" src="/images/website-development-image.jpeg" />
-              <ProductItem title="Reels And Shorts" description="Smart automation workflows." href="/n8n-automation" src="/images/n8n-automation-image.jpg" />
+              <ProductItem title="Reels And Shorts" description="Smart automation workflows." href="/reels+shorts" src="/images/n8n-automation-image.jpg" />
             </div>
           </MenuItem>
 

@@ -78,7 +78,7 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <div className="relative w-full min-h-screen  text-white overflow-x-hidden">
+      <div className="relative w-full min-h-screen  text-white ">
         {/* Navbar (Animated hide/show on scroll) */}
         <motion.div
           initial={{ y: 0 }}
@@ -107,7 +107,7 @@ export default function Home() {
                 <ProductItem
                   title="Social Media Presence"
                   description="Interactive 3D motion cards."
-                  href="#cards"
+                  href="/socialmediapresence"
                   src="/images/video-production-image.jpg"
                 />
                 <ProductItem
@@ -138,7 +138,7 @@ export default function Home() {
             </MenuItem>
 
           <MenuItem setActive={setActive} active={active} item="Contact">
-              <Link setActive={setActive} active={active}
+              <Link 
                 
                 href="/contact"
                 className="text-white text-base font-semibold hover:text-purple-400 duration-300 p-5 transition flex items-center gap-2"

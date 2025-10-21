@@ -122,7 +122,7 @@ export default function PricingPage() {
                 <ProductItem
                   title="Social Media Presence"
                   description="Interactive 3D motion cards."
-                  href="#cards"
+                  href="/socialmediapresence"
                   src="/images/video-production-image.jpg"
                 />
                 <ProductItem

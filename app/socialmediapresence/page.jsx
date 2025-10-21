@@ -189,10 +189,10 @@ export default function SocialMediaPresencePage() {
           </p>
 
           <div className="flex flex-wrap justify-center gap-6">
-            {[{ name: "Facebook", img: "/logos/facebook.png" },
-              { name: "Instagram", img: "/logos/instagram.png" },
-              { name: "LinkedIn", img: "/logos/linkedin.png" },
-              { name: "Twitter", img: "/logos/twitter.png" },
+            {[{ name: "Facebook", img: "/logos/fbimage.png" },
+              { name: "Instagram", img: "/logos/instaimage.png" },
+              { name: "LinkedIn", img: "/logos/linkedinimage.png" },
+              { name: "Twitter", img: "/logos/twitterimage.png" },
             ].map((platform) => (
               <div
                 key={platform.name}

@@ -79,7 +79,7 @@ console.log(formData);
                 <ProductItem
                   title="Social Media Presence"
                   description="Interactive 3D motion cards."
-                  href="#cards"
+                  href="/socialmediapresence"
                   src="/images/video-production-image.jpg"
                 />
                 <ProductItem
@@ -91,7 +91,7 @@ console.log(formData);
                 <ProductItem
                   title="Reels Shorts"
                   description="Interactive 3D motion cards."
-                  href="/n8n-automation"
+                  href="/reels+shorts"
                   src="/images/n8n-automation-image.jpg"
                 />
               </div>

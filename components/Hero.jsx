@@ -22,38 +22,7 @@ const playfair = Playfair_Display({
 export default function HeroSection() {
   return (
     <div className="relative z-[50] mx-auto my-10 flex max-w-7xl flex-col items-center justify-center px-4 py-10 md:py-20">
-      {/* Heading */}
-      <h1
-        className={`${spaceGrotesk.className} relative z-10 mx-auto max-w-5xl text-center text-3xl font-extrabold text-purple-800 md:text-5xl lg:text-7xl`}
-      >
-        {"Design. Animate. Launch. Instantly."
-          .split(" ")
-          .map((word, index) => (
-            <motion.span
-              key={index}
-              initial={{ opacity: 0, filter: "blur(4px)", y: 10 }}
-              animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-              transition={{
-                duration: 0.4,
-                delay: index * 0.12,
-                ease: "easeInOut",
-              }}
-              className="mr-2 inline-block"
-            >
-              {word}
-            </motion.span>
-          ))}
-      </h1>
 
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 0.8 }}
-        className={`${playfair.className} relative z-10 mx-auto max-w-2xl py-5 text-center text-lg text-neutral-700`}
-      >
-        With AfterRender’s AI-powered tools, you can bring your creative ideas
-        to life — design and deploy stunning web experiences in just minutes.
-      </motion.p>
 
  <motion.div
   initial={{ opacity: 0, y: 15 }}

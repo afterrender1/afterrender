@@ -6,7 +6,8 @@ import { useState, useEffect } from "react";
 import { AnimatedTestimonials } from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 import { InfiniteMovingCards } from "@/components/DigitalSolutions";
-import { MacbookScroll } from "@/components/Macbookscroll";
+// import { MacbookScroll } from "@/components/Macbookscroll";
+import HeroSection from "@/components/HeroSection";
 import AnimatedLogoShowcase from "@/components/AnimatedLogoShowcase";
 import StickyTextSection from "@/components/StickyTextSection";
 import StepSection from "@/components/Steps";
@@ -143,19 +144,7 @@ export default function Home() {
         </motion.div>
 
         {/* Hero Grid */}
-        <div className="flex flex-col lg:flex-row justify-between items-center gap-10 px-6 sm:px-12 md:px-16 pt-40 md:pt-48">
-          <div className="hidden md:flex flex-1 justify-center">
-            <AnimatedLogoShowcase />
-          </div>
-
-          <div className="flex-1 w-full max-w-[700px] flex justify-center">
-            <MacbookScroll src={"herovideo.mp4"} />
-          </div>
-
-          <div className="hidden md:flex flex-1 justify-center">
-            <AnimatedLogoShowcase />
-          </div>
-        </div>
+    <HeroSection/>
       </div>
 
       {/* Testimonials */}
@@ -182,14 +171,14 @@ export default function Home() {
       </section>
 
       {/* Moving Cards */}
-      <section className="py-16 px-4 sm:px-10">
+      {/* <section className="py-16 px-4 sm:px-10">
         <InfiniteMovingCards
           items={cards}
           direction="left"
           speed="normal"
           pauseOnHover={true}
         />
-      </section>
+      </section> */}
 
       {/* Sticky + Steps */}
       <StickyTextSection />

@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@theme inline {
+/* @theme inline {
   --animate-scroll: scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite;
 
   @keyframes scroll {
@@ -8,7 +8,7 @@
       transform: translate(calc(-50% - 0.5rem));
     }
   }
-}
+} */
 
 
 :root {

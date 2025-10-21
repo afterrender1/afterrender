@@ -15,6 +15,8 @@ import Link from "next/link";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import { motion } from "framer-motion";
 import { Playfair_Display, Space_Grotesk } from "next/font/google";
+import { MdContactSupport } from "react-icons/md";
+
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
@@ -76,7 +78,7 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <div className="relative w-full min-h-screen  text-white overflow-hidden">
+      <div className="relative w-full min-h-screen  text-white overflow-x-hidden">
         {/* Navbar (Animated hide/show on scroll) */}
         <motion.div
           initial={{ y: 0 }}
@@ -103,7 +105,7 @@ export default function Home() {
                   src="/images/video-editing-image.jpg"
                 />
                 <ProductItem
-                  title="Video Production"
+                  title="Social Media Presence"
                   description="Interactive 3D motion cards."
                   href="#cards"
                   src="/images/video-production-image.jpg"
@@ -111,13 +113,13 @@ export default function Home() {
                 <ProductItem
                   title="Website Development"
                   description="Interactive 3D motion cards."
-                  href="#cards"
+                  href="/website-development"
                   src="/images/website-development-image.jpeg"
                 />
                 <ProductItem
-                  title="N8N Automation"
+                  title="Reels And Shorts"
                   description="Interactive 3D motion cards."
-                  href="#cards"
+                  href="/reels+shorts"
                   src="/images/n8n-automation-image.jpg"
                 />
               </div>
@@ -135,10 +137,15 @@ export default function Home() {
               </div>
             </MenuItem>
 
-            <MenuItem setActive={setActive} active={active} item="Contact Us">
-              <div className="p-4 w-64 text-sm text-gray-300">
-                Get in touch for your next creative project.
-              </div>
+          <MenuItem setActive={setActive} active={active} item="Contact">
+              <Link setActive={setActive} active={active}
+                
+                href="/contact"
+                className="text-white text-base font-semibold hover:text-purple-400 duration-300 p-5 transition flex items-center gap-2"
+              >
+              <MdContactSupport  size={22}/>
+ Go to Contact
+              </Link>
             </MenuItem>
           </Menu>
         </motion.div>

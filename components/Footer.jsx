@@ -20,7 +20,7 @@ const Footer = () => {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
-      className={`${spaceGrotesk.className} relative text-gray-100 mt-8 border-t border-transparent bg-gradient-to-br from-gray-900/70 via-gray-950/60 to-gray-900/70 backdrop-blur-xl`}
+      className={`${spaceGrotesk.className} relative m-6 rounded-3xl text-gray-100 mt-8  bg-gradient-to-br from-gray-900/70 via-gray-950/60 to-gray-900/70 backdrop-blur-xl`}
       style={{
         borderImage:
           "linear-gradient(to right, #a855f7, #ec4899) 1",

@@ -33,19 +33,20 @@ export default function HeroSection() {
             ease: "easeInOut",
           }}
         >
-          <motion.div
-            className="relative flex items-center justify-center rounded-2xl p-3 bg-transparent"
-            whileHover={{ scale: 1.15, rotate: 2 }}
-            transition={{ type: "spring", stiffness: 200, damping: 12 }}
-          >
-            <Image
-              src={logo.src}
-              alt="logo"
-              width={60}
-              height={60}
-              className="object-contain rounded md:w-[80px] md:h-[60px] w-[60px] h-[60px]"
-            />
-          </motion.div>
+         <motion.div
+  className="relative flex items-center justify-center rounded-2xl p-3 bg-transparent"
+  whileHover={{ scale: 1.15, rotate: 2 }}
+  transition={{ type: "spring", stiffness: 200, damping: 12 }}
+>
+  <Image
+    src={logo.src}
+    alt="logo"
+    width={100}          // keep fixed width for Next.js optimization
+    height={100}         // keep fixed height
+    className="object-contain rounded md:w-[80px] md:h-auto w-[60px] h-auto" // make height auto to maintain aspect ratio
+  />
+</motion.div>
+
         </motion.div>
       ))}
     </div>

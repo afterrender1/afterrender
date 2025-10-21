@@ -60,28 +60,28 @@ export const Menu = ({ setActive, children }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav
-      onMouseLeave={() => setActive(null)}
-      className="relative z-[100] flex flex-wrap items-center justify-around  rounded-b-4xl px-6 py-3 transparent text-neutral-800  hover:scale-110 duration-400 "
-    >
-      {/* Left — Logo */}
-<Link href={"/"}>
-      <div className="flex items-center gap-2 cursor-pointer hover:scale-110 duration-400">
-        <Image
-          src="/arlogo.png"
-          alt="Logo"
-          width={32}
-          height={30}
-          style={{ height: "auto", width: "auto" }}
-          priority
-        />
-        <span
-          className={`${poppins.className} text-2xl font-semibold tracking-wide`}
-        >
-          AfterRender
-        </span>
-      </div>
+<nav
+  suppressHydrationWarning
+  onMouseLeave={() => setActive(null)}
+  className="relative z-[100] flex flex-wrap items-center justify-around rounded-b-4xl px-6 py-3 text-neutral-800 hover:scale-110 duration-400"
+>
 
+      {/* Left — Logo */}
+<Link href="/" className="flex items-center gap-2 cursor-pointer hover:scale-110 transition-transform duration-300">
+  <div className="relative w-8 h-8">
+    <Image
+      src="/arlogo.png"
+      alt="AfterRender Logo"
+      fill
+      className="object-contain"
+      priority
+      sizes="32px"
+    />
+  </div>
+
+  <span className={`${poppins.className} text-2xl font-semibold tracking-wide`}>
+    AfterRender
+  </span>
 </Link>
 
       {/* Center — Links (visible on md and up) */}
@@ -91,7 +91,7 @@ export const Menu = ({ setActive, children }) => {
 
       {/* Right — Button */}
       <div className="hidden md:flex items-center space-x-2">
-     
+     <Link href={"/contact"}>
 <button
   className={`${poppins.className}  relative group text-black transition-all flex items-center justify-center whitespace-nowrap rounded-lg hover:rotate-[3deg] will-change-transform duration-300 shadow-lg hover:shadow-xl h-14 text-base cursor-pointer pl-[4rem]  pr-6 bg-[#ba9ffa] shadow-purple-400/30 hover:shadow-purple-400/30`}
 >
@@ -124,6 +124,7 @@ export const Menu = ({ setActive, children }) => {
   <div>Get Started</div>
 
 </button>
+     </Link>
 
       </div>
 

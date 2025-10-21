@@ -6,6 +6,7 @@ import Navbar from "@/components/Navbar";
 import { Menu, MenuItem, ProductItem, HoveredLink } from "@/components/MenuItem";
 import Link from "next/link";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
+import { MdContactSupport } from "react-icons/md";
 
 
 const poppins = Poppins({
@@ -91,12 +92,7 @@ export default function PricingPage() {
   return (
     <>
 <div
-  style={{
-    backgroundImage: "url('/purple-bg.jpg')",
-    backgroundSize: "cover",
-    backgroundPosition: "center",
-    backgroundRepeat: "no-repeat",
-  }}
+  
   className="w-full"
 >
 
@@ -124,7 +120,7 @@ export default function PricingPage() {
                   src="/images/video-editing-image.jpg"
                 />
                 <ProductItem
-                  title="Video Production"
+                  title="Social Media Presence"
                   description="Interactive 3D motion cards."
                   href="#cards"
                   src="/images/video-production-image.jpg"
@@ -132,13 +128,13 @@ export default function PricingPage() {
                 <ProductItem
                   title="Website Development"
                   description="Interactive 3D motion cards."
-                  href="#cards"
+                  href="/website-development"
                   src="/images/website-development-image.jpeg"
                 />
                 <ProductItem
-                  title="N8N Automation"
+                  title="Reels And Shorts"
                   description="Interactive 3D motion cards."
-                  href="#cards"
+                  href="/reels+shorts"
                   src="/images/n8n-automation-image.jpg"
                 />
               </div>
@@ -158,10 +154,15 @@ export default function PricingPage() {
                 A modern interactive UI built with Next.js, Motion, and Tailwind CSS.
               </div>
             </MenuItem>
-            <MenuItem setActive={setActive} active={active} item="Contact Us">
-              <div className="p-4 w-64 text-sm text-neutral-700 dark:text-neutral-300">
-                A modern interactive UI built with Next.js, Motion, and Tailwind CSS.
-              </div>
+           <MenuItem setActive={setActive} active={active} item="Contact">
+              <Link setActive={setActive} active={active}
+                
+                href="/contact"
+                className="text-white text-base font-semibold hover:text-purple-400 duration-300 p-5 transition flex items-center gap-2"
+              >
+              <MdContactSupport  size={22}/>
+ Go to Contact
+              </Link>
             </MenuItem>
           </Menu>
         </div>

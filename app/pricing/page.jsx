@@ -135,7 +135,7 @@ export default function PricingPage() {
                   title="Reels And Shorts"
                   description="Interactive 3D motion cards."
                   href="/reels+shorts"
-                  src="/images/n8n-automation-image.jpg"
+                  src="/images/reelshorts.png"
                 />
               </div>
             </MenuItem>

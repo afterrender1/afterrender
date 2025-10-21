@@ -41,7 +41,7 @@ export default function VideoEditingPage() {
       <div className="absolute inset-0" />
 
       {/* Navbar */}
-         <motion.div
+    <motion.div
           initial={{ y: 0 }}
           animate={{ y: showNavbar ? 0 : -100 }}
           transition={{ duration: 0.4, ease: "easeInOut" }}
@@ -81,15 +81,20 @@ export default function VideoEditingPage() {
                   title="Reels And Shorts"
                   description="Interactive 3D motion cards."
                   href="/reels+shorts"
-                  src="/images/n8n-automation-image.jpg"
+                  src="/images/reelshorts.png"
                 />
               </div>
             </MenuItem>
 
-            <MenuItem setActive={setActive} active={active} item="Our Works">
-              <div className="p-4 w-64 text-sm text-gray-300">
-                A modern interactive UI built with Next.js, Motion, and Tailwind CSS.
-              </div>
+               <MenuItem setActive={setActive} active={active} item="Our Works">
+              <Link 
+                
+                href="/ourwork"
+                className="text-white text-base font-semibold hover:text-purple-400 duration-300 p-5 transition flex items-center gap-2"
+              >
+              <MdContactSupport  size={22}/>
+ Go To Our Works
+              </Link>
             </MenuItem>
 
             <MenuItem setActive={setActive} active={active} item="Portfolio">
@@ -98,8 +103,9 @@ export default function VideoEditingPage() {
               </div>
             </MenuItem>
 
-              <MenuItem setActive={setActive} active={active} item="Contact">
-              <Link
+          <MenuItem setActive={setActive} active={active} item="Contact">
+              <Link 
+                
                 href="/contact"
                 className="text-white text-base font-semibold hover:text-purple-400 duration-300 p-5 transition flex items-center gap-2"
               >
@@ -109,6 +115,7 @@ export default function VideoEditingPage() {
             </MenuItem>
           </Menu>
         </motion.div>
+
 
       {/* ================= HERO SECTION ================= */}
       <section className="relative z-10 pt-32">

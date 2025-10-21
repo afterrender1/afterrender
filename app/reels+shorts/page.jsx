@@ -32,41 +32,71 @@ export default function ReelsShortsPage() {
   return (
     <div className={`${montserrat.className} w-full min-h-screen relative`}>
       {/* Navbar */}
-      <motion.div
-        initial={{ y: 0 }}
-        animate={{ y: showNavbar ? 0 : -100 }}
-        transition={{ duration: 0.4, ease: "easeInOut" }}
-        className="fixed top-0 left-0 w-full z-50"
-      >
-        <Menu setActive={setActive} className="bg-black/70 backdrop-blur-lg border-b border-white/10">
-          <MenuItem setActive={setActive} active={active} item="Pricing">
-            <Link
-              href="/pricing"
-              className="text-white text-base font-semibold hover:text-purple-400 duration-300 p-5 transition flex items-center gap-2"
-            >
-              <RiMoneyDollarCircleLine size={22} /> Go to Pricing
-            </Link>
-          </MenuItem>
-
-          <MenuItem setActive={setActive} active={active} item="Capabilities">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-4">
-              <ProductItem title="Video Editing" description="Professional short form edits." href="/video-editing" src="/images/video-editing-image.jpg" />
-              <ProductItem title="Social Media Presence" description="Creative Reels & Shorts." href="/socialmediapresence" src="/images/video-production-image.jpg" />
-              <ProductItem title="Website Development" description="Interactive web solutions." href="/website-development" src="/images/website-development-image.jpeg" />
-              <ProductItem title="Reels And Shorts" description="Smart automation workflows." href="/reels+shorts" src="/images/n8n-automation-image.jpg" />
-            </div>
-          </MenuItem>
-
-          <MenuItem setActive={setActive} active={active} item="Our Works">
-            <div className="p-4 w-64 text-sm text-gray-300">Shorts and Reels for brands and creators.</div>
-          </MenuItem>
-
-          <MenuItem setActive={setActive} active={active} item="Portfolio">
-            <div className="p-4 w-64 text-sm text-gray-300">View our latest creative short-form videos.</div>
-          </MenuItem>
-
-              <MenuItem setActive={setActive} active={active} item="Contact">
+     <motion.div
+          initial={{ y: 0 }}
+          animate={{ y: showNavbar ? 0 : -100 }}
+          transition={{ duration: 0.4, ease: "easeInOut" }}
+          className="fixed top-0 left-0 w-full z-50"
+        >
+          <Menu setActive={setActive} className="bg-black/70 backdrop-blur-lg border-b border-white/10">
+            <MenuItem setActive={setActive} active={active} item="Pricing">
               <Link
+                href="/pricing"
+                className="text-white text-base font-semibold hover:text-purple-400 duration-300 p-5 transition flex items-center gap-2"
+              >
+                <RiMoneyDollarCircleLine size={22} /> Go to Pricing
+              </Link>
+            </MenuItem>
+
+            <MenuItem setActive={setActive} active={active} item="Capabilities">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-4">
+                <ProductItem
+                  title="Video Editing"
+                  description="Smooth scroll animation section."
+                  href="/video-editing"
+                  src="/images/video-editing-image.jpg"
+                />
+                <ProductItem
+                  title="Social Media Presence"
+                  description="Interactive 3D motion cards."
+                  href="/socialmediapresence"
+                  src="/images/video-production-image.jpg"
+                />
+                <ProductItem
+                  title="Website Development"
+                  description="Interactive 3D motion cards."
+                  href="/website-development"
+                  src="/images/website-development-image.jpeg"
+                />
+                <ProductItem
+                  title="Reels And Shorts"
+                  description="Interactive 3D motion cards."
+                  href="/reels+shorts"
+                  src="/images/reelshorts.png"
+                />
+              </div>
+            </MenuItem>
+
+               <MenuItem setActive={setActive} active={active} item="Our Works">
+              <Link 
+                
+                href="/ourwork"
+                className="text-white text-base font-semibold hover:text-purple-400 duration-300 p-5 transition flex items-center gap-2"
+              >
+              <MdContactSupport  size={22}/>
+ Go To Our Works
+              </Link>
+            </MenuItem>
+
+            <MenuItem setActive={setActive} active={active} item="Portfolio">
+              <div className="p-4 w-64 text-sm text-gray-300">
+                Explore our latest projects and collaborations.
+              </div>
+            </MenuItem>
+
+          <MenuItem setActive={setActive} active={active} item="Contact">
+              <Link 
+                
                 href="/contact"
                 className="text-white text-base font-semibold hover:text-purple-400 duration-300 p-5 transition flex items-center gap-2"
               >
@@ -74,8 +104,9 @@ export default function ReelsShortsPage() {
  Go to Contact
               </Link>
             </MenuItem>
-        </Menu>
-      </motion.div>
+          </Menu>
+        </motion.div>
+
 
       {/* HERO SECTION */}
       <section className="relative z-10 pt-32">

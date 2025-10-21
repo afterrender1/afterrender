@@ -1,29 +1,22 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-
 import { motion } from "framer-motion";
 import { Montserrat } from "next/font/google";
+import Link from "next/link";
+import Image from "next/image";
 import { Menu, MenuItem , ProductItem } from "@/components/MenuItem";
-import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import Footer from "@/components/Footer";
 import { Heading } from "@/components/Heading";
-import Link from "next/link";
 import { MdContactSupport } from "react-icons/md";
+import { RiMoneyDollarCircleLine } from "react-icons/ri";
 
 const montserrat = Montserrat({ subsets: ["latin"], weight: ["400", "600", "700"] });
 
-export default function ContactPage() {
+export default function OurWorksPage() {
   const [active, setActive] = useState(null);
   const [showNavbar, setShowNavbar] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    service: "",
-    message: "",
-  });
-  const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,25 +27,37 @@ export default function ContactPage() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-console.log(formData);
-
-    setSubmitted(true);
-    setFormData({ name: "", email: "", service: "", message: "" });
-  };
+  const works = [
+    {
+      title: "Website Redesign - Emerald Co.",
+      description:
+        "A full website redesign with interactive animations, responsive UI, and smooth scrolling features.",
+      img: "/images/emerald-project.png",
+      ytEmbed: "https://www.youtube.com/embed/EaCH1Xwp9Aw?si=u_2bpYPklSIe0ETu", // Replace with actual video
+    },
+    {
+      title: "Social Media Campaign - Chao Agency",
+      description:
+        "Engaging social media content creation, reels, stories, and targeted campaigns to boost engagement.",
+      img: "/images/chao-project.png",
+      ytEmbed: "https://www.youtube.com/embed/rHfibRZisjI?si=vCA9uMqdVyGhQP4y",
+    },
+    {
+      title: "Video Production - YouTube Series",
+      description:
+        "Produced high-quality videos for YouTube channels including editing, animation, and post-production.",
+      img: "/images/youtube-project.png",
+      ytEmbed: "https://www.youtube.com/embed/5q1njhBzdF0?si=ZXHMrWtSiAhItkO8",
+    },
+  ];
 
   return (
-    <div className={`${montserrat.className} w-full min-h-screen  `}>
+    <div className={`${montserrat.className} w-full min-h-screen relative`}>
       {/* Background */}
-  
+      
 
       {/* Navbar */}
-    <motion.div
+       <motion.div
           initial={{ y: 0 }}
           animate={{ y: showNavbar ? 0 : -100 }}
           transition={{ duration: 0.4, ease: "easeInOut" }}
@@ -128,85 +133,73 @@ console.log(formData);
         </motion.div>
 
 
-      {/* HERO */}
-      <section className="relative z-10 pt-32 text-center text-gray-700">
-        <Heading text="Contact Us" />
-        <p className="text-lg md:text-xl max-w-2xl mx-auto mt-4">
-          Have a question or want to start a project? Fill out the form below and we’ll get back to you.
+      {/* HERO SECTION */}
+      <section className="relative z-10 pt-32 pb-20 text-center text-white">
+        <Heading text={"Our Works"} />
+        <p className="max-w-3xl mx-auto text-lg md:text-xl mt-4 text-gray-700">
+          See our portfolio of websites, social media campaigns, videos, and interactive projects built with creativity and precision.
         </p>
       </section>
 
-      {/* FORM SECTION */}
-      <section className="relative z-10 max-w-3xl mx-auto px-6 py-24">
-        {submitted && (
-          <div className="mb-6 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg text-center">
-            Your message has been sent successfully!
-          </div>
-        )}
-        <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-2xl p-8 flex flex-col gap-6">
-          <div className="flex flex-col">
-            <label className="mb-2 font-semibold text-gray-700">Name</label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
-              placeholder="Your Name"
-            />
-          </div>
+      {/* WORKS GRID */}
+    {/* WORKS GRID */}
+<section className="relative z-10 max-w-7xl mx-auto px-6 py-16 space-y-20">
+  {works.map((work, index) => (
+    <div
+      key={index}
+      className="bg-gray-900 rounded-3xl shadow-xl overflow-hidden flex flex-col md:flex-row gap-8 p-6 md:p-10"
+    >
+      {/* Video - larger width */}
+      <div className="md:w-3/4 flex flex-col items-center justify-center gap-6">
+        <div className="w-full" style={{ aspectRatio: "16 / 9" }}>
+          <iframe
+            src={work.ytEmbed}
+            title={work.title}
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="w-full h-full rounded-xl shadow-lg"
+          ></iframe>
+        </div>
+      </div>
 
-          <div className="flex flex-col">
-            <label className="mb-2 font-semibold text-gray-700">Email</label>
-            <input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
-              placeholder="you@example.com"
-            />
-          </div>
+      {/* Details - smaller column */}
+      <div className="md:w-1/4 flex flex-col justify-center space-y-6">
+        <h3 className="text-3xl font-bold text-white">{work.title}</h3>
+        <p className="text-gray-300">{work.description}</p>
+      </div>
+    </div>
+  ))}
+</section>
 
-          <div className="flex flex-col">
-            <label className="mb-2 font-semibold text-gray-700">Service Interested In</label>
-            <select
-              name="service"
-              value={formData.service}
-              onChange={handleChange}
-              required
-              className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
-            >
-              <option value="">Select a Service</option>
-              <option value="Video Editing">Video Editing</option>
-              <option value="Video Production">Video Production</option>
-              <option value="Website Development">Website Development</option>
-              <option value="N8N Automation">N8N Automation</option>
-            </select>
-          </div>
 
-          <div className="flex flex-col">
-            <label className="mb-2 font-semibold text-gray-700">Message</label>
-            <textarea
-              name="message"
-              value={formData.message}
-              onChange={handleChange}
-              required
-              rows={6}
-              className="border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-purple-500"
-              placeholder="Write your message here..."
-            ></textarea>
-          </div>
 
-          <button
-            type="submit"
-            className="bg-purple-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-purple-600 transition-all duration-300"
-          >
-            Send Message
-          </button>
-        </form>
+
+      {/* CTA SECTION */}
+      <section className="relative py-24 text-white overflow-hidden">
+        <div className="max-w-5xl mx-auto px-6 relative z-10">
+          <div className="mx-4 md:mx-20 backdrop-blur-xl bg-black rounded-3xl shadow-2xl p-10 md:p-16 text-center">
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              Let’s Build Your Next Project 🌐
+            </h2>
+            <p className="text-lg md:text-xl text-purple-100 mb-10 max-w-2xl mx-auto">
+              Partner with us to bring your ideas to life, from websites to social media campaigns and video production.
+            </p>
+            <div className="flex flex-col md:flex-row justify-center gap-4">
+              <Link
+                href="/contact"
+                className="px-10 py-4 bg-white text-black font-semibold rounded-full hover:bg-purple-100 transition-all duration-300 shadow-md hover:shadow-xl"
+              >
+                Start Your Project
+              </Link>
+              <Link
+                href="/contact"
+                className="px-10 py-4 bg-transparent border border-white font-semibold rounded-full hover:bg-white hover:text-black transition-all duration-300"
+              >
+                Schedule a Free Call
+              </Link>
+            </div>
+          </div>
+        </div>
       </section>
 
       <Footer />

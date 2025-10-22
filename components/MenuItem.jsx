@@ -195,10 +195,10 @@ useEffect(() => {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="md:hidden absolute top-full left-0 w-full bg-purple-800 text-white shadow-lg rounded-b-2xl px-6 py-4 flex flex-col space-y-4 z-[200]"
+          className="md:hidden absolute top-full left-0 w-full bg-[#386DFF] text-white shadow-lg rounded-b-2xl px-6 py-4 flex flex-col space-y-4 z-[200]"
         >
           {children}
-          <button className="bg-white text-purple-700 px-4 py-2 rounded-full font-medium hover:bg-purple-100 transition">
+          <button className="bg-white text-[#386DFF] px-4 py-2 rounded-full font-medium hover:bg-purple-100 transition">
             Get Start
           </button>
         </motion.div>

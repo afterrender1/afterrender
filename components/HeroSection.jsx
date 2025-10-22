@@ -5,7 +5,6 @@ import Image from "next/image";
 import { Poppins } from "next/font/google";
 import { MdLocalSee } from "react-icons/md";
 
-
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "600", "700"],
@@ -35,7 +34,7 @@ export default function HeroSection() {
   ];
 
   const LogoGrid = () => (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 gap-8 place-items-center">
+    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 gap-6 place-items-center">
       {videologos.map((logo, index) => (
         <motion.div
           key={index}
@@ -53,15 +52,15 @@ export default function HeroSection() {
           }}
         >
           <motion.div
-            className="relative flex items-center justify-center rounded-2xl p-3 bg-transparent"
+            className="relative flex items-center justify-center rounded-2xl p-2 bg-transparent"
             whileHover={{ scale: 1.15, rotate: 2 }}
             transition={{ type: "spring", stiffness: 200, damping: 12 }}
           >
             <Image
               src={logo.src}
               alt="logo"
-              width={70}
-              height={70}
+              width={60}
+              height={60}
               className="h-auto rounded-xl"
             />
           </motion.div>
@@ -71,7 +70,7 @@ export default function HeroSection() {
   );
 
   const LogoGrid2 = () => (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 gap-8 place-items-center">
+    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 gap-6 place-items-center">
       {weblogos.map((logo, index) => (
         <motion.div
           key={index}
@@ -89,15 +88,15 @@ export default function HeroSection() {
           }}
         >
           <motion.div
-            className="relative flex items-center justify-center rounded-2xl p-3 bg-transparent"
+            className="relative flex items-center justify-center rounded-2xl p-2 bg-transparent"
             whileHover={{ scale: 1.15, rotate: 2 }}
             transition={{ type: "spring", stiffness: 200, damping: 12 }}
           >
             <Image
               src={logo.src}
               alt="logo"
-              width={70}
-              height={70}
+              width={60}
+              height={60}
               className="h-auto rounded-xl"
             />
           </motion.div>
@@ -107,24 +106,22 @@ export default function HeroSection() {
   );
 
   return (
-    <div className="flex flex-col 
- ">
+    <div className="flex flex-col relative w-full overflow-hidden">
       <div
-        className={`flex flex-col items-center justify-center min-h-[80vh] text-center px-6 pt-25  
-
-`}
+        className={`flex flex-col items-center justify-center min-h-[80vh] text-center px-4 md:px-6 pt-20`}
       >
         <h4
-          className={`${poppins.className} text-3xl md:text-5xl lg:text-4xl font-semibold leading-tight text-white/80 max-w-4xl`}
+          className={`${poppins.className} text-2xl sm:text-3xl md:text-5xl lg:text-4xl font-semibold leading-tight text-white/80 max-w-4xl`}
         >
           We will Edit your Short / Long Form Videos in High Quality with{" "}
           <span className="">Super Fast Turnaround Time</span>
         </h4>
         <h4
-          className={`${poppins.className} text-3xl mt-4 md:text-5xl lg:text-2xl font-semibold leading-tight text-white/60 max-w-4xl`}
+          className={`${poppins.className} text-xl sm:text-2xl md:text-3xl mt-4 font-semibold leading-tight text-white/60 max-w-4xl`}
         >
-         You can even Get Ideas & Scripts After we research in your Niche. <br></br>
-(Say no to Freelance Video Editors)
+          You can even Get Ideas & Scripts After we research in your Niche.
+          <br />
+          (Say no to Freelance Video Editors)
         </h4>
 
         <section className="relative flex flex-col md:flex-row items-center justify-center bg-transparent overflow-hidden w-full mt-10">
@@ -142,8 +139,8 @@ export default function HeroSection() {
             }}
           />
 
-          <div className="w-full md:w-[60%] flex justify-center items-center z-10 my-8 md:my-0 scale-105">
-            <div className="relative w-[95%] aspect-video  overflow-hidden shadow-2xl">
+          <div className="w-full md:w-[60%] flex justify-center items-center z-10 my-8 md:my-0">
+            <div className="relative w-[90%] sm:w-[85%] md:w-[80%] aspect-video overflow-hidden shadow-2xl rounded-2xl">
               <video
                 src="/herovideo.mp4"
                 autoPlay
@@ -156,27 +153,50 @@ export default function HeroSection() {
           </div>
         </section>
       </div>
-     <div className="flex flex-col sm:flex-row gap-4 py-5 items-center justify-center  ">
-          <motion.button 
-            whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(168,85,247,0.4)" }}
-            whileTap={{ scale: 0.95 }}
-            className={`${poppins.className}         bg-[#0047d6]
- text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300`}
-          >
-            Book A Call
-       
-          </motion.button>
 
-          <motion.button
-            whileHover={{ scale: 1.05, boxShadow: "0 0 25px rgba(255,255,255,0.2)" }}
-            whileTap={{ scale: 0.95 }}
-            className={`${poppins.className}  flex items-center gap-3 bg-[#0047d6]  hover:bg-[#3b74e4] font-semibold px-8 py-4 rounded-lg transition-all duration-300`}
-          >
-            See Our Work <MdLocalSee />
+      <div className="flex flex-col sm:flex-row gap-4 py-5 items-center justify-center">
+        <motion.button
+          whileHover={{
+            scale: 1.05,
+            boxShadow: "0 0 25px rgba(168,85,247,0.4)",
+          }}
+          whileTap={{ scale: 0.95 }}
+          className={`${poppins.className} bg-[#0047d6] text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300`}
+        >
+          Book A Call
+        </motion.button>
 
-          </motion.button>
-        </div>
+        <motion.button
+          whileHover={{
+            scale: 1.05,
+            boxShadow: "0 0 25px rgba(255,255,255,0.2)",
+          }}
+          whileTap={{ scale: 0.95 }}
+          className={`${poppins.className} flex items-center gap-3 bg-[#0047d6] hover:bg-[#3b74e4] text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300`}
+        >
+          See Our Work <MdLocalSee />
+        </motion.button>
+      </div>
 
+      {/* Line images - responsive fixed position */}
+      <div className="absolute top-10 left-6 sm:left-12 md:left-24 w-16 sm:w-24 md:w-32">
+        <Image
+          src={"/images/lineimage.png"}
+          alt="line"
+          width={100}
+          height={100}
+          className="w-full h-auto"
+        />
+      </div>
+      <div className="absolute top-10 right-6 sm:right-12 md:right-24 w-16 sm:w-24 md:w-32 rotate-180">
+        <Image
+          src={"/images/lineimage.png"}
+          alt="line"
+          width={100}
+          height={100}
+          className="w-full h-auto"
+        />
+      </div>
     </div>
   );
 }

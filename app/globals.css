@@ -37,24 +37,33 @@
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
 }
-
 body {
-    overflow-x: hidden !important;
+  overflow-x: hidden !important;
+
+  /* Backdrop blur effect */
   backdrop-filter: blur(20px) saturate(150%);
   -webkit-backdrop-filter: blur(20px) saturate(150%);
 
-  /* background-image: url("/images/bluebg4.png"); */
-  background: linear-gradient(to bottom,#366bff , #5f90ff,#7faeff );
-
-  
+  /* Gradient background */
+  background: linear-gradient(to bottom, #366bff, #5f90ff, #7faeff);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  overflow-x: hidden;
+  background-position: center center;
+
+  /* Avoid fixed background on mobile for better performance */
+  background-attachment: scroll;
+
   animation: moveBackground 30s ease-in-out infinite alternate;
 }
 
+/* Optional: For desktops, use fixed background */
+@media (min-width: 768px) {
+  body {
+    background-attachment: fixed;
+  }
+}
+
+/* Gradient animation */
 @keyframes moveBackground {
   0% {
     background-position: center center;
@@ -66,5 +75,6 @@ body {
     background-position: center center;
   }
 }
+
 
 

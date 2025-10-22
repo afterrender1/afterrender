@@ -5,52 +5,97 @@ import Image from "next/image";
 import {Heading } from "@/components/Heading"
 
 export default function HeroSection() {
-  const logos = [
-    { src: "/logos/reactlogo.png" },
-    { src: "/logos/njslogo.jpg" },
+  const videologos = [
+    { src: "/logos/cclogo.png" },
+    { src: "/logos/lrlogo.png" },
     { src: "/logos/prlogo.png" },
     { src: "/logos/n8nlogo.jpg" },
     { src: "/logos/pslogo.png" },
     { src: "/logos/ailogo.png" },
-    { src: "/logos/aelogo.png" },
+    { src: "/logos/aftereffectlogo.png" },
+    { src: "/logos/dvlogo.png" },
+  ];
+  const weblogos = [
+    { src: "/logos/reactlogo.png" },
+    { src: "/logos/nextjslogo.png" },
+    { src: "/logos/mongodb.png" },
+    { src: "/logos/tailwind.png" },
+    { src: "/logos/nodejs.png" },
+    { src: "/logos/firebase.png" },
+    { src: "/logos/jslogo.png" },
+    { src: "/logos/expressjs.png" },
   ];
 
-  const LogoGrid = () => (
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 gap-8 place-items-center">
-      {logos.map((logo, index) => (
+const LogoGrid = () => (
+  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 gap-8 place-items-center">
+    {videologos.map((logo, index) => (
+      <motion.div
+        key={index}
+        className="flex items-center justify-center"
+        animate={{
+          y: [0, -8, 0],
+          scale: [1, 1.05, 1],
+          rotate: [0, 1.5, -1.5, 0],
+        }}
+        transition={{
+          duration: 5 + index * 0.2,
+          repeat: Infinity,
+          repeatType: "mirror",
+          ease: "easeInOut",
+        }}
+      >
         <motion.div
-          key={index}
-          className="flex items-center justify-center"
-          animate={{
-            y: [0, -8, 0],
-            scale: [1, 1.05, 1],
-            rotate: [0, 1.5, -1.5, 0],
-          }}
-          transition={{
-            duration: 5 + index * 0.2,
-            repeat: Infinity,
-            repeatType: "mirror",
-            ease: "easeInOut",
-          }}
+          className="relative flex items-center justify-center rounded-2xl p-3 bg-transparent"
+          whileHover={{ scale: 1.15, rotate: 2 }}
+          transition={{ type: "spring", stiffness: 200, damping: 12 }}
         >
-         <motion.div
-  className="relative flex items-center justify-center rounded-2xl p-3 bg-transparent"
-  whileHover={{ scale: 1.15, rotate: 2 }}
-  transition={{ type: "spring", stiffness: 200, damping: 12 }}
->
-  <Image
+   <Image
     src={logo.src}
     alt="logo"
-    width={100}          // keep fixed width for Next.js optimization
-    height={100}         // keep fixed height
-    className="object-contain rounded md:w-[80px] md:h-auto w-[60px] h-auto" // make height auto to maintain aspect ratio
+    width={70}          
+    height={70}         
+    className="h-auto rounded-xl" // make height auto to maintain aspect ratio
   />
-</motion.div>
-
         </motion.div>
-      ))}
-    </div>
-  );
+      </motion.div>
+    ))}
+  </div>
+);
+const LogoGrid2 = () => (
+  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-2 gap-8 place-items-center">
+    {weblogos.map((logo, index) => (
+      <motion.div
+        key={index}
+        className="flex items-center justify-center"
+        animate={{
+          y: [0, -8, 0],
+          scale: [1, 1.05, 1],
+          rotate: [0, 1.5, -1.5, 0],
+        }}
+        transition={{
+          duration: 5 + index * 0.2,
+          repeat: Infinity,
+          repeatType: "mirror",
+          ease: "easeInOut",
+        }}
+      >
+        <motion.div
+          className="relative flex items-center justify-center rounded-2xl p-3 bg-transparent"
+          whileHover={{ scale: 1.15, rotate: 2 }}
+          transition={{ type: "spring", stiffness: 200, damping: 12 }}
+        >
+   <Image
+    src={logo.src}
+    alt="logo"
+    width={70}          
+    height={70}         
+    className="h-auto rounded-xl" // make height auto to maintain aspect ratio
+  />
+        </motion.div>
+      </motion.div>
+    ))}
+  </div>
+);
 
   return (
     <>
@@ -76,7 +121,7 @@ export default function HeroSection() {
 
       {/* Left Logos */}
       <div className="hidden md:flex flex-col items-center justify-center w-[25%] z-10">
-        <LogoGrid />
+        <LogoGrid2/>
       </div>
 
       {/* Center Video (Bigger Size) */}

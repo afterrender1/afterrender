@@ -32,14 +32,7 @@ export default function SocialMediaPresencePage() {
   return (
     <div className={`${montserrat.className} w-full min-h-screen relative`}>
       {/* Background */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: "url('/socialmedia-bg.jpg')",
-          backgroundAttachment: "fixed",
-        }}
-      />
-      <div className="absolute inset-0" />
+ 
 
       {/* Navbar */}
     <motion.div

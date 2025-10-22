@@ -5,10 +5,7 @@ import { Menu, MenuItem, ProductItem } from "@/components/MenuItem";
 import { useState, useEffect } from "react";
 import { AnimatedTestimonials } from "@/components/Testimonials";
 import Footer from "@/components/Footer";
-import { InfiniteMovingCards } from "@/components/DigitalSolutions";
-// import { MacbookScroll } from "@/components/Macbookscroll";
 import HeroSection from "@/components/HeroSection";
-import AnimatedLogoShowcase from "@/components/AnimatedLogoShowcase";
 import StickyTextSection from "@/components/StickyTextSection";
 import StepSection from "@/components/Steps";
 import Link from "next/link";
@@ -48,32 +45,7 @@ export default function Home() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
-  const cards = [
-    {
-      name: "Documentary Video",
-      title: "Professional Production",
-      quote: "High-quality documentary shoots and editing.",
-      bg: "/Documentry-Video.png",
-    },
-    {
-      name: "Talking Head Video",
-      title: "Corporate & Personal",
-      quote: "Creative headshots and talking head videos.",
-      bg: "/Talking-Head.png",
-    },
-    {
-      name: "Podcast Video",
-      title: "Engaging & Professional",
-      quote: "Record, edit, and produce high-quality podcasts.",
-      bg: "/Podcast-Video.png",
-    },
-    {
-      name: "Reel",
-      title: "Social Media Ready",
-      quote: "Dynamic reels for Instagram, TikTok, and more.",
-      bg: "/Reels.png",
-    },
-  ];
+
 
   return (
     <>
@@ -182,17 +154,9 @@ export default function Home() {
         />
       </section>
 
-      {/* Moving Cards */}
-      {/* <section className="py-16 px-4 sm:px-10">
-        <InfiniteMovingCards
-          items={cards}
-          direction="left"
-          speed="normal"
-          pauseOnHover={true}
-        />
-      </section> */}
+  
 
-      {/* Sticky + Steps */}
+    
       <StickyTextSection />
       <StepSection />
 

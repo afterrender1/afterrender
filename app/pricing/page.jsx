@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Poppins } from "next/font/google";
-import Navbar from "@/components/Navbar";
 import { Menu, MenuItem, ProductItem, HoveredLink } from "@/components/MenuItem";
 import Link from "next/link";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";

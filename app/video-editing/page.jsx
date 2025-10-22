@@ -265,7 +265,7 @@ Tools That Power Our Edits    </h2>
       {/* Card 2 */}
       <div className="relative group cursor-pointer overflow-hidden text-gray-800 h-80 w-64 rounded-2xl transition-all duration-700">
         <div className="w-64 h-80 bg-white flex items-center justify-center">
-          <img src="/logos/aelogo.png" alt="After Effects" className="w-30 h-20" />
+          <img src="/logos/aelogo.png" alt="After Effects" className="w-20 h-20" />
         </div>
         <div className="absolute bg-white -bottom-28 w-64 p-4 flex flex-col gap-2 rounded-t-3xl hover:bg-purple-100 group-hover:bottom-0 transition-all duration-500 shadow-lg">
           <span className="textblack font-semibold text-sm uppercase">

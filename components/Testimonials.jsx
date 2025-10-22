@@ -18,9 +18,11 @@ export const AnimatedTestimonials = ({
   const [active, setActive] = useState(0);
   const [randomRotations, setRandomRotations] = useState([]);
 
-  useEffect(() => {
-    setRandomRotations(testimonials.map(() => Math.floor(Math.random() * 21) - 10));
-  }, [testimonials]);
+useEffect(() => {
+  if (!testimonials || testimonials.length === 0) return;
+  setRandomRotations(testimonials.map(() => Math.floor(Math.random() * 21) - 10));
+}, []); 
+
 
   const handleNext = () => setActive((prev) => (prev + 1) % testimonials.length);
   const handlePrev = () => setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length);

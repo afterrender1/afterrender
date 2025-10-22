@@ -11,6 +11,8 @@ import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/f
 import Footer from "@/components/Footer";
 import { Heading } from "@/components/Heading";
 import { MdContactSupport } from "react-icons/md";
+import { TfiWorld } from "react-icons/tfi";
+
 
 const montserrat = Montserrat({ subsets: ["latin"], weight: ["400", "600", "700"] });
 const playfair = Playfair_Display({ subsets: ["latin"], weight: ["600", "700"] });
@@ -222,8 +224,10 @@ export default function SocialMediaPresencePage() {
       <section className="relative py-24 text-white overflow-hidden">
         <div className="max-w-5xl mx-auto px-6 relative z-10">
           <div className="mx-20 backdrop-blur-xl bg-black rounded-3xl shadow-2xl p-10 md:p-16 text-center">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Boost Your Brand’s Social Presence 🌐
+            
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 flex ">
+              Boost Your Brand’s Social Presence 
+
             </h2>
             <p className="text-lg md:text-xl text-purple-100 mb-10 max-w-2xl mx-auto">
               Partner with us to create engaging social campaigns that grow your audience and revenue.

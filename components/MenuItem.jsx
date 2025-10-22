@@ -58,28 +58,40 @@ export const MenuItem = ({ setActive, active, item, children }) => {
 export const Menu = ({ setActive, children }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
-  // Detect scroll to toggle glassy background
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+useEffect(() => {
+  setMounted(true);
+}, []);
+
+
+useEffect(() => {
+  const handleScroll = () => {
+    const scrollTop = window.scrollY;
+    // Prevent unnecessary state updates
+    setScrolled((prev) => {
+      const shouldBeScrolled = scrollTop > 20;
+      return prev !== shouldBeScrolled ? shouldBeScrolled : prev;
+    });
+  };
+
+  window.addEventListener("scroll", handleScroll);
+  handleScroll(); // Run once on mount
+
+  return () => {
+    window.removeEventListener("scroll", handleScroll);
+  };
+}, []);
+
 
   return (
-    <nav
-      suppressHydrationWarning
-      onMouseLeave={() => setActive(null)}
-      className={`fixed w-full z-[100] flex flex-wrap items-center justify-around rounded-b-4xl px-6 py-3 text-neutral-800 transition-all duration-300
-        ${scrolled ? "bg-white/90 text-white dark:bg-black/40 backdrop-blur-md shadow-md" : "bg-transparent"} 
-        hover:scale-110`}
-    >
+  <nav
+  suppressHydrationWarning
+  className={`fixed w-full z-[100] flex flex-wrap items-center justify-around rounded-b-4xl px-6 py-3 text-neutral-800 transition-all duration-300
+    ${mounted && scrolled ? "bg-white/90 text-white dark:bg-black/40 backdrop-blur-md shadow-md" : "bg-transparent"}
+    hover:scale-110`}
+>
+
       {/* Left — Logo */}
       <Link
         href="/"
@@ -107,35 +119,47 @@ export const Menu = ({ setActive, children }) => {
 
       {/* Right — Button */}
       <div className="hidden md:flex items-center space-x-2">
-        <Link href={"/contact"}>
-          <button
-            className={`${poppins.className} relative group text-black transition-all flex items-center justify-center whitespace-nowrap rounded-lg hover:rotate-[3deg] will-change-transform duration-300 shadow-lg hover:shadow-xl h-14 text-base cursor-pointer pl-[4rem] pr-6 bg-[#ba9ffa] shadow-purple-400/30 hover:shadow-purple-400/30`}
-          >
-            <div className="absolute left-0 top-0 mt-2 ml-2 bg-white text-black-600 p-[0.35rem] bottom-1 group-hover:w-[calc(100%-0.9rem)] transition-all rounded-md duration-300 h-10 w-10">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="h-full w-full"
-              >
-                <path d="M10 8h.01" />
-                <path d="M12 12h.01" />
-                <path d="M14 8h.01" />
-                <path d="M16 12h.01" />
-                <path d="M18 8h.01" />
-                <path d="M6 8h.01" />
-                <path d="M7 16h10" />
-                <path d="M8 12h.01" />
-                <rect width="20" height="16" x="2" y="4" rx="2" />
-              </svg>
-            </div>
-            <div className={`"hidden md:flex flex-wrap justify-center gap-6 text-black" ${scrolled ? "text-white" : "text-black"}` }>Get Started</div>
-          </button>
-        </Link>
+      <Link href="/contact" className="no-underline group relative">
+    <div
+      className={`
+        ${poppins.className}
+        flex items-center gap-3 px-8 py-3 rounded-2xl font-semibold text-white
+        bg-gradient-to-r from-purple-500 via-purple-600 to-purple-500
+        shadow-[0_0_25px_rgba(168,85,247,0.4)]
+        hover:shadow-[0_0_40px_rgba(217,70,239,0.6)]
+        hover:from-purple-800 hover:to-purple-600
+        transition-all duration-500 ease-out
+        backdrop-blur-md relative overflow-hidden
+      `}
+    >
+      {/* subtle animated overlay */}
+      <div className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 blur-md transition-all duration-500" />
+      
+      {/* icon */}
+      <motion.div
+        initial={{ rotate: 0 }}
+        whileHover={{ rotate: 360 }}
+        transition={{ duration: 0.6, ease: "easeInOut" }}
+        className="relative z-10 p-2 bg-white/10 rounded-full"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-5 h-5 text-white"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          strokeWidth="2"
+        >
+          <path d="M5 12h14" />
+          <path d="M12 5l7 7-7 7" />
+        </svg>
+      </motion.div>
+
+      {/* text */}
+      <span className="relative z-10 tracking-wide">Get Started</span>
+    </div>
+  </Link>
+
       </div>
 
       {/* Mobile Menu Toggle */}

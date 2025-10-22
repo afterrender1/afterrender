@@ -151,7 +151,7 @@ export const Menu = ({ setActive, children }) => {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.3 }}
-          className="md:hidden absolute top-full left-0 w-full bg-[#386DFF] text-white shadow-lg rounded-b-2xl px-4 sm:px-6 py-4 flex flex-col space-y-4 z-[200]"
+          className="md:hidden absolute top-full left-0 w-full bg-[#386DFF] text-white shadow-lg rounded-b-2xl px-4 sm:px-6 py-1 flex flex-col space-y-4 z-[400]"
         >
           {React.Children.map(children, (child) =>
             React.cloneElement(child, { isMobile: true })
@@ -166,11 +166,39 @@ export const Menu = ({ setActive, children }) => {
 };
 
 export const ProductItem = ({ title, description, href, src }) => (
-  <Link href={href} className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
-    <img src={src} width={140} height={70} alt={title} className="shrink-0 rounded-md shadow-2xl" />
-    <div className="flex flex-col">
-      <h4 className="text-xl font-bold mb-1 text-white">{title}</h4>
-      <p className="text-neutral-200 text-sm max-w-[12rem]">{description}</p>
-    </div>
-  </Link>
+<Link
+
+  href={href}
+  className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 lg:gap-4 transition-transform hover:scale-[1.02]"
+>
+  <img
+    src={src}
+    alt={title}
+    className="shrink-0 rounded-md shadow-lg
+      w-20 h-12          /* xs */
+      sm:w-24 sm:h-14    /* sm */
+      md:w-28 md:h-16    /* md */
+      lg:w-32 lg:h-18    /* lg */
+      object-cover"
+  />
+
+  <div className="flex flex-col">
+    <h4
+      className="font-semibold text-white leading-snug mb-0.5
+      text-sm sm:text-base md:text-lg lg:text-xl"
+    >
+      {title}
+    </h4>
+
+    <p
+      className="text-neutral-300 leading-tight
+      text-[11px] sm:text-xs md:text-sm lg:text-base
+      max-w-[8rem] sm:max-w-[10rem] md:max-w-[12rem]"
+    >
+      {description}
+    </p>
+  </div>
+</Link>
+
+
 );

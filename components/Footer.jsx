@@ -118,9 +118,9 @@ const Footer = () => {
         <div>
           <h4 className="text-lg font-semibold text-white mb-4">Contact</h4>
           <ul className="space-y-2 text-gray-400">
-            <li>71-75 Shelton Street, London</li>
+            <li>Karachi , Pakistan RJ Mall Gate 3</li>
             <li>contact@afterrender.com</li>
-            <li>+44 1183 282090</li>
+            <li>+92 325373433</li>
           </ul>
         </div>
       </div>

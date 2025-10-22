@@ -71,14 +71,31 @@ export default function PortfolioPage() {
                 href="/website-development"
                 src="/images/website-development-image.jpeg"
               />
+                <ProductItem
+                                title="Social Media Presence"
+                                description="Interactive 3D motion cards."
+                                href="/socialmediapresence"
+                                src="/images/video-production-image.jpg"
+                              />
+                                 <ProductItem
+                                                title="Reels And Shorts"
+                                                description="Interactive 3D motion cards."
+                                                href="/reels+shorts"
+                                                src="/images/reelshorts.png"
+                                              />
             </div>
           </MenuItem>
 
-          <MenuItem setActive={setActive} active={active} item="Portfolio">
-            <div className="p-4 w-64 text-sm text-neutral-700 dark:text-neutral-300">
-              Explore our creative work across multiple domains.
-            </div>
-          </MenuItem>
+               <MenuItem setActive={setActive} active={active} item="Portfolio">
+              <Link 
+                
+                href="/portfolio"
+                className="text-white text-base font-semibold hover:text-purple-400 duration-300 p-5 transition flex items-center gap-2"
+              >
+              <MdContactSupport  size={22}/>
+ Go to portfolio
+              </Link>
+            </MenuItem>
        
           <MenuItem setActive={setActive} active={active} item="Our Works">
             <Link

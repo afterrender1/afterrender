@@ -1,6 +1,7 @@
 // app/layout.js
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import LenisScrollProvider from "@/components/LenisScrollProvoder";
 
 const geistSans = Geist({
   subsets: ["latin"],
@@ -27,7 +28,9 @@ export default function RootLayout({ children }) {
         suppressHydrationWarning
       >
        
-        {children}
+        <LenisScrollProvider>
+          {children}
+        </LenisScrollProvider>
         
       </body>
     </html>

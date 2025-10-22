@@ -97,10 +97,15 @@ export default function VideoEditingPage() {
               </Link>
             </MenuItem>
 
-            <MenuItem setActive={setActive} active={active} item="Portfolio">
-              <div className="p-4 w-64 text-sm text-gray-300">
-                Explore our latest projects and collaborations.
-              </div>
+                 <MenuItem setActive={setActive} active={active} item="Portfolio">
+              <Link 
+                
+                href="/portfolio"
+                className="text-white text-base font-semibold hover:text-purple-400 duration-300 p-5 transition flex items-center gap-2"
+              >
+              <MdContactSupport  size={22}/>
+ Go to portfolio
+              </Link>
             </MenuItem>
 
           <MenuItem setActive={setActive} active={active} item="Contact">
@@ -177,7 +182,7 @@ export default function VideoEditingPage() {
       {/* Step 1 */}
       <div className="bg-white  hover:border hover:border-purple-800 p-6 w-full md:w-1/3 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 text-center">
         <div className="w-12 h-12 flex items-center justify-center bg-purple-600 text-white text-lg font-bold rounded-full mx-auto mb-4">
-          1️⃣
+          1
         </div>
         <h3 className="text-xl font-semibold mb-2">Import Footage</h3>
         <p className="text-sm text-gray-600">
@@ -209,7 +214,7 @@ export default function VideoEditingPage() {
       {/* Step 2 */}
       <div className="bg-white  hover:border hover:border-purple-800  p-6 w-full md:w-1/3 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 text-center">
         <div className="w-12 h-12 flex items-center justify-center bg-purple-600 text-white text-lg font-bold rounded-full mx-auto mb-4">
-          2️⃣
+          2
         </div>
         <h3 className="text-xl font-semibold mb-2">Cut & Sync</h3>
         <p className="text-sm text-gray-600">
@@ -222,7 +227,7 @@ export default function VideoEditingPage() {
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
       <div className="bg-white  hover:border hover:border-purple-800  p-6 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 text-center md:col-start-2">
         <div className="w-12 h-12 flex items-center justify-center bg-purple-500 text-white text-lg font-bold rounded-full mx-auto mb-4">
-          3️⃣
+        3
         </div>
         <h3 className="text-xl font-semibold mb-2">Export & Share</h3>
         <p className="text-sm text-gray-600">
@@ -298,7 +303,7 @@ export default function VideoEditingPage() {
       {/* Card 4 */}
       <div className="relative group cursor-pointer overflow-hidden text-gray-800 h-80 w-64 rounded-2xl transition-all duration-700">
         <div className="w-64 h-80 bg-white flex items-center justify-center">
-          <img src="/logos/fclogo.png" alt="Final Cut Pro" className="w-20 h-20" />
+          <img src="/logos/finalcut.png" alt="Final Cut Pro" className="w-20 h-20" />
         </div>
         <div className="absolute bg-white -bottom-28 w-64 p-4 flex flex-col gap-2 hover:bg-purple-100 rounded-t-3xl group-hover:bottom-0 transition-all duration-500 shadow-lg">
           <span className="textblack font-semibold text-sm uppercase">

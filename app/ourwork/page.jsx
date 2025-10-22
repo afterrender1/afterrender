@@ -113,10 +113,15 @@ export default function OurWorksPage() {
               </Link>
             </MenuItem>
 
-            <MenuItem setActive={setActive} active={active} item="Portfolio">
-              <div className="p-4 w-64 text-sm text-gray-300">
-                Explore our latest projects and collaborations.
-              </div>
+                <MenuItem setActive={setActive} active={active} item="Portfolio">
+              <Link 
+                
+                href="/portfolio"
+                className="text-white text-base font-semibold hover:text-purple-400 duration-300 p-5 transition flex items-center gap-2"
+              >
+              <MdContactSupport  size={22}/>
+ Go to portfolio
+              </Link>
             </MenuItem>
 
           <MenuItem setActive={setActive} active={active} item="Contact">

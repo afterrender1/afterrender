@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { Poppins } from "next/font/google";
+import Link from "next/link";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -35,14 +36,15 @@ export default function StickyTextSection() {
               impact. Watch what makes us the best.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mt-6">
-              <button className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-xl font-semibold shadow-md transition-all duration-300">
-                Work with us
-              </button>
-              <button className="border border-purple-400 text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-900/20 px-6 py-3 rounded-xl font-semibold transition-all duration-300">
-                BOOK A CALL
-              </button>
-            </div>
+          <div className="flex flex-col sm:flex-row gap-4 mt-6">
+  <Link href="/contact" className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-xl font-semibold shadow-md transition-all duration-300 text-center">
+    Work with us
+  </Link>
+  <Link href="/book-call" className="border border-purple-400 text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-900/20 px-6 py-3 rounded-xl font-semibold transition-all duration-300 text-center">
+    BOOK A CALL
+  </Link>
+</div>
+
           </div>
         </div>
 

@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
-import { Poppins , Space_Grotesk} from "next/font/google";
+import { Poppins, Space_Grotesk } from "next/font/google";
 import { Menu, MenuItem, ProductItem } from "@/components/MenuItem";
 import Link from "next/link";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
@@ -17,7 +17,6 @@ const spaceGrotesk = Space_Grotesk({
   weight: ["400", "500", "700"],
   variable: "--font-space-grotesk",
 });
-
 
 const pricingData = [
   {
@@ -77,8 +76,7 @@ const pricingData = [
 export default function PricingPage() {
   const [filter, setFilter] = useState("All");
   const [active, setActive] = useState(null);
-    const [showNavbar, setShowNavbar] = useState(true);
-    const [lastScrollY, setLastScrollY] = useState(0);
+  const [showNavbar, setShowNavbar] = useState(true);
 
   const filteredPlans =
     filter === "All"
@@ -97,19 +95,23 @@ export default function PricingPage() {
     <>
       {/* Navbar */}
       <div className="fixed top-0 left-0 w-full z-50">
-      <motion.div
+        <motion.div
           initial={{ y: 0 }}
           animate={{ y: showNavbar ? 0 : -100 }}
           transition={{ duration: 0.4, ease: "easeInOut" }}
           className="fixed top-0 left-0 w-full z-50"
         >
-          <Menu setActive={setActive} className="bg-black/70 backdrop-blur-lg border-b border-white/10">
+          <Menu
+            setActive={setActive}
+            className="bg-black/70 backdrop-blur-lg border-b border-white/10"
+          >
             <MenuItem setActive={setActive} active={active} item="Pricing">
               <Link
                 href="/pricing"
-                className="text-white text-base font-semibold hover:text-purple-400 duration-300 p-5 transition flex items-center gap-2"
+                className="text-white text-sm sm:text-base font-semibold hover:text-purple-400 duration-300 p-4 sm:p-5 flex items-center gap-2"
               >
-                <RiMoneyDollarCircleLine size={22} /> Go to Pricing
+                <RiMoneyDollarCircleLine size={20} />
+                Go to Pricing
               </Link>
             </MenuItem>
 
@@ -142,36 +144,33 @@ export default function PricingPage() {
               </div>
             </MenuItem>
 
-               <MenuItem setActive={setActive} active={active} item="Our Works">
-              <Link 
-                
+            <MenuItem setActive={setActive} active={active} item="Our Works">
+              <Link
                 href="/ourwork"
-                className="text-white text-base font-semibold hover:text-purple-400 duration-300 p-5 transition flex items-center gap-2"
+                className="text-white text-sm sm:text-base font-semibold hover:text-purple-400 duration-300 p-4 sm:p-5 flex items-center gap-2"
               >
-              <MdContactSupport  size={22}/>
- Go To Our Works
+                <MdContactSupport size={20} />
+                Go To Our Works
               </Link>
             </MenuItem>
 
-         <MenuItem setActive={setActive} active={active} item="Portfolio">
-              <Link 
-                
+            <MenuItem setActive={setActive} active={active} item="Portfolio">
+              <Link
                 href="/portfolio"
-                className="text-white text-base font-semibold hover:text-purple-400 duration-300 p-5 transition flex items-center gap-2"
+                className="text-white text-sm sm:text-base font-semibold hover:text-purple-400 duration-300 p-4 sm:p-5 flex items-center gap-2"
               >
-              <MdContactSupport  size={22}/>
- Go to portfolio
+                <MdContactSupport size={20} />
+                Go to Portfolio
               </Link>
             </MenuItem>
 
-          <MenuItem setActive={setActive} active={active} item="Contact">
-              <Link 
-                
+            <MenuItem setActive={setActive} active={active} item="Contact">
+              <Link
                 href="/contact"
-                className="text-white text-base font-semibold hover:text-purple-400 duration-300 p-5 transition flex items-center gap-2"
+                className="text-white text-sm sm:text-base font-semibold hover:text-purple-400 duration-300 p-4 sm:p-5 flex items-center gap-2"
               >
-              <MdContactSupport  size={22}/>
- Go to Contact
+                <MdContactSupport size={20} />
+                Go to Contact
               </Link>
             </MenuItem>
           </Menu>
@@ -180,23 +179,23 @@ export default function PricingPage() {
 
       {/* Main Section */}
       <main
-        className={`${spaceGrotesk.className} min-h-screen px-6 py-24 `}
+        className={`${spaceGrotesk.className} min-h-screen px-4 sm:px-6 md:px-8 lg:px-16 py-24`}
       >
         <div className="max-w-7xl mx-auto text-center">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-5xl font-extrabold mb-4 text-white/90 "
+            className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-4 text-white/90"
           >
-            Our <span className="text-white/90 ">Pricing Plans</span>
+            Our <span className="text-white/90">Pricing Plans</span>
           </motion.h2>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-gray-700 mb-12 text-lg max-w-2xl mx-auto"
+            className="text-gray-700 mb-10 sm:mb-12 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed"
           >
             Choose the perfect plan for your needs — whether it’s editing, web
             development, product design, or automation. Powered by our top-tier
@@ -204,16 +203,16 @@ export default function PricingPage() {
           </motion.p>
 
           {/* Filter Buttons */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
+          <div className="flex flex-wrap justify-center gap-3 sm:gap-4 mb-10 sm:mb-12">
             {categories.map((cat) => (
               <motion.button
                 key={cat}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setFilter(cat)}
-                className={`px-5 py-2 rounded-full border font-semibold transition-all duration-300 ${
+                className={`px-4 sm:px-5 py-2 rounded-full border font-semibold text-sm sm:text-base transition-all duration-300 ${
                   filter === cat
                     ? "bg-[#0047D6] border-[#0047D6] text-white shadow-md shadow-purple-400/50"
-                    : "border[#0047D6] text-white/90  hover:bg-purple-200/70"
+                    : "border border-[#0047D6] text-white/90 hover:bg-purple-200/70"
                 }`}
               >
                 {cat}
@@ -221,11 +220,11 @@ export default function PricingPage() {
             ))}
           </div>
 
-          {/* Pricing Cards with Animation Fix */}
+          {/* Pricing Cards */}
           <LayoutGroup>
             <motion.div
               layout
-              className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-center"
+              className="grid gap-8 sm:gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 justify-center"
             >
               <AnimatePresence mode="popLayout">
                 {filteredPlans.map((plan) => (
@@ -236,28 +235,30 @@ export default function PricingPage() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20, scale: 0.95 }}
                     transition={{ duration: 0.35 }}
-                    className="bg-white border border-purple-400/30 rounded-3xl p-8 text-left shadow-lg hover:shadow-2xl hover:border-purple-500/60 transition-all duration-300 hover:scale-[1.02]"
+                    className="bg-white border border-purple-400/30 rounded-2xl sm:rounded-3xl p-6 sm:p-8 text-left shadow-lg hover:shadow-2xl hover:border-purple-500/60 transition-all duration-300 hover:scale-[1.02]"
                   >
-                    <h4 className="text-lg font-semibold text-[#0047D6] mb-2">
+                    <h4 className="text-base sm:text-lg font-semibold text-[#0047D6] mb-2">
                       {plan.category}
                     </h4>
-                    <h3 className="text-2xl font-bold text-[#0047D6] mb-4">
+                    <h3 className="text-xl sm:text-2xl font-bold text-[#0047D6] mb-4">
                       {plan.title}
                     </h3>
-                    <p className="text-5xl font-extrabold mb-1 text-[#0047D6]">
+                    <p className="text-4xl sm:text-5xl font-extrabold mb-1 text-[#0047D6]">
                       {plan.price}
                     </p>
-                    <p className="text-[#0047D6] mb-6">{plan.period}</p>
-                    <ul className="space-y-3 mb-8">
+                    <p className="text-[#0047D6] mb-6 text-sm sm:text-base">
+                      {plan.period}
+                    </p>
+                    <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
                       {plan.features.map((feature, idx) => (
                         <li
                           key={idx}
-                          className="flex items-center text-[#0047D6]"
+                          className="flex items-center text-[#0047D6] text-sm sm:text-base"
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 20 20"
-                            className="w-5 h-5 mr-2 text-green-500"
+                            className="w-4 h-4 sm:w-5 sm:h-5 mr-2 text-green-500"
                           >
                             <path d="M7.293 13.293l-3-3a1 1 0 011.414-1.414L8 12.586l8.293-8.293a1 1 0 111.414 1.414l-9 9a1 1 0 01-1.414 0z" />
                           </svg>
@@ -268,7 +269,7 @@ export default function PricingPage() {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="w-full py-3 rounded-full bg-[#0047D6] text-white font-semibold hover:bg-[#0342be] transition duration-300"
+                      className="w-full py-3 rounded-full bg-[#0047D6] text-white font-semibold text-sm sm:text-base hover:bg-[#0342be] transition duration-300"
                     >
                       Start Now
                     </motion.button>

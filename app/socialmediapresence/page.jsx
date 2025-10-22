@@ -151,9 +151,9 @@ export default function SocialMediaPresencePage() {
       {/* SERVICES SECTION */}
       <section className="relative z-10 pt-32 pb-24 text-gray-900">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Social Media Services
-          </h2>
+                  <div className="mb-6">
+                      <Heading text={"Social Media Services"}/>
+            </div>
           <p className="text-gray-600 max-w-2xl mx-auto mb-16">
             Strategies and content that drive real engagement and ROI for your brand.
           </p>
@@ -183,7 +183,9 @@ export default function SocialMediaPresencePage() {
       {/* PLATFORMS SECTION */}
       <section className="relative z-10 py-24 text-gray-900">
         <div className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Platforms We Excel On</h2>
+                 <div className="mb-6">
+                     <Heading text={"Platform We Excel On"}/>
+           </div>
           <p className="text-gray-600 max-w-2xl mx-auto mb-16">
             From social networks to emerging platforms, we help your brand stand out everywhere.
           </p>
@@ -199,7 +201,7 @@ export default function SocialMediaPresencePage() {
                 className="group relative cursor-pointer bg-white w-64 h-80 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500"
               >
                 <div className="flex items-center justify-center h-80">
-                  <img src={platform.img} alt={platform.name} className="w-20 h-20" />
+                  <Image src={platform.img} height={80} width={80} alt="social media images" className="rounded-xl"></Image>
                 </div>
                 <div className="absolute bg-white -bottom-28 w-64 p-5 flex flex-col gap-2 rounded-t-3xl hover:bg-purple-100 group-hover:bottom-0 transition-all duration-500 shadow-lg">
                   <span className="text-black font-bold text-2xl">{platform.name}</span>

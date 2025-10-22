@@ -159,9 +159,9 @@ export default function WebsiteDevelopmentPage() {
       {/* WORKFLOW SECTION */}
       <section className="relative z-10 pt-32 pb-24 text-gray-900">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">
-            Our Web Development Workflow
-          </h2>
+                  <div className="mb-6">
+                      <Heading text={"Our Web Development Workflow"}/>
+            </div>
           <p className="text-gray-600 max-w-2xl mx-auto mb-16">
             A strategic, design-driven approach that ensures your website looks amazing and performs flawlessly.
           </p>
@@ -191,14 +191,16 @@ export default function WebsiteDevelopmentPage() {
       {/* TOOLS SECTION */}
       <section className="relative z-10 py-24 text-gray-900">
         <div className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Technologies We Use 💻</h2>
+                <div className="mb-6">
+                    <Heading text={"Technologies We Use"}/>
+          </div>
           <p className="text-gray-600 max-w-2xl mx-auto mb-16">
             We use modern frameworks and technologies to build fast, reliable, and scalable digital products.
           </p>
 
           <div className="flex flex-wrap justify-center gap-6">
             {[
-              { name: "Next.js", img: "/logos/njslogo.jpg" },
+              { name: "Next.js", img: "/logos/njslogo.png" },
               { name: "React", img: "/logos/reactlogo.png" },
               { name: "Tailwind CSS", img: "/logos/tailwind.png" },
               { name: "Node.js", img: "/logos/nodejs.png" },
@@ -225,7 +227,9 @@ export default function WebsiteDevelopmentPage() {
       {/* PRICING SECTION */}
       <section className="relative z-10 py-24 text-gray-900">
         <div className="max-w-6xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Flexible Web Plans 💰</h2>
+                <div className="mb-6">
+                    <Heading text={"Flexible Web Plans"}/>
+          </div>
           <p className="text-gray-600 max-w-2xl mx-auto mb-16">
             Transparent pricing for startups, creators, and growing brands.
           </p>

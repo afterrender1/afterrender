@@ -147,25 +147,27 @@ export default function ReelsShortsPage() {
       {/* WORKFLOW SECTION */}
       <section className="relative z-10 pt-32 pb-24 text-gray-900">
         <div className="max-w-7xl mx-auto px-6 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Our Creative Process</h2>
+                 <div className="mb-6">
+                     <Heading text={"Our Creative Process"}/>
+           </div>
           <p className="text-gray-600 max-w-2xl mx-auto mb-16">
             From concept to viral-ready content, we ensure every reel & short maximizes engagement and impact.
           </p>
 
           <div className="grid md:grid-cols-3 gap-10">
-            <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+            <div className="bg-white p-14 rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
               <FaFilm className="text-purple-600 text-4xl mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">Concept & Script</h3>
               <p className="text-sm text-gray-600">We brainstorm ideas that resonate and tell your story effectively.</p>
             </div>
 
-            <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+            <div className="bg-white p-14 rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
               <FaBolt className="text-purple-600 text-4xl mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">Shoot & Edit</h3>
               <p className="text-sm text-gray-600">Professional shooting and fast, attention-grabbing edits tailored for social media.</p>
             </div>
 
-            <div className="bg-white p-6 rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
+            <div className="bg-white p-14 rounded-2xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
               <FaVideo className="text-purple-600 text-4xl mx-auto mb-4" />
               <h3 className="text-xl font-semibold mb-2">Publish & Optimize</h3>
               <p className="text-sm text-gray-600">Schedule, optimize, and monitor performance to maximize reach and engagement.</p>

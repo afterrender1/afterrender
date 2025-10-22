@@ -1,11 +1,16 @@
 "use client";
 import React from "react";
-import { Poppins } from "next/font/google";
+import { Poppins , Space_Grotesk } from "next/font/google";
 import { motion } from "framer-motion";
 
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+});
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  variable: "--font-space-grotesk",
 });
 
 export default function StepsSection() {
@@ -29,14 +34,14 @@ export default function StepsSection() {
 
   return (
     <section
-      className={`${poppins.className} w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-10 lg:px-16 py-24`}
+      className={`${spaceGrotesk.className} w-full max-w-7xl mx-auto px-5 sm:px-8 md:px-10 lg:px-16 py-24`}
     >
       {/* Header */}
       <div className="text-center mb-20">
         <h2 className="text-xs sm:text-sm uppercase tracking-[0.2em] text-purple-400 font-semibold mb-4">
           Here's How It Works
         </h2>
-        <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-800 leading-tight">
+        <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#6E11B0] leading-tight">
           Simple <span className="text-[#6E11B0]">3-Step Process</span>
         </h3>
         <p className="mt-5 text-neutral-800 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">

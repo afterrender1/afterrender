@@ -164,9 +164,9 @@ export default function VideoEditingPage() {
   <div className="max-w-7xl mx-auto px-6">
     {/* Heading */}
     <div className="text-center mb-20">
-      <h2 className="text-3xl md:text-5xl font-bold mb-4">
-        Video Editing Workflow
-      </h2>
+              <div className="mb-6">
+            <Heading text={"Video Editing Workflow"}/>
+  </div>
       <p className="text-gray-600 max-w-2xl mx-auto">
         From import to final export — a seamless creative journey powered by precision and style.
       </p>
@@ -238,8 +238,9 @@ export default function VideoEditingPage() {
 <section className="relative z-10 py-24 text-gray-900 ">
 
   <div className="max-w-6xl mx-auto px-6">
-    <h2 className="text-3xl md:text-5xl font-bold text-center mb-4">
-Tools That Power Our Edits    </h2>
+        <div className="mb-6">
+            <Heading text={"Tools That Power Our Edits"}/>
+  </div>
     <p className="text-gray-600 text-center max-w-2xl mx-auto mb-16">
       Our creative process is powered by the best professional tools in the
       industry — ensuring cinematic precision and seamless workflows.
@@ -319,9 +320,9 @@ Tools That Power Our Edits    </h2>
   <div className="max-w-6xl mx-auto px-6">
     {/* Heading */}
     <div className="text-center mb-16">
-      <h2 className="text-3xl md:text-5xl font-bold mb-4">
-        Simple, Transparent Pricing 💰
-      </h2>
+              <div className="mb-6">
+            <Heading text={"Simple , Transparent Pricing"}/>
+  </div>
       <p className="text-gray-600 max-w-2xl mx-auto">
         Choose a plan that matches your editing goals — no hidden fees, just pure creativity.
       </p>

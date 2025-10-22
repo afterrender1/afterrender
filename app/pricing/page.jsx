@@ -187,16 +187,16 @@ export default function PricingPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="text-5xl font-extrabold mb-4 text-purple-900"
+            className="text-5xl font-extrabold mb-4 text-white/90 "
           >
-            Our <span className="text-purple-600">Pricing Plans</span>
+            Our <span className="text-white/90 ">Pricing Plans</span>
           </motion.h2>
 
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-purple-800/80 mb-12 text-lg max-w-2xl mx-auto"
+            className="text-gray-700 mb-12 text-lg max-w-2xl mx-auto"
           >
             Choose the perfect plan for your needs — whether it’s editing, web
             development, product design, or automation. Powered by our top-tier
@@ -212,8 +212,8 @@ export default function PricingPage() {
                 onClick={() => setFilter(cat)}
                 className={`px-5 py-2 rounded-full border font-semibold transition-all duration-300 ${
                   filter === cat
-                    ? "bg-purple-700 border-purple-700 text-white shadow-md shadow-purple-400/50"
-                    : "border-purple-500 text-purple-800 hover:bg-purple-200/70"
+                    ? "bg-[#0047D6] border-[#0047D6] text-white shadow-md shadow-purple-400/50"
+                    : "border[#0047D6] text-white/90  hover:bg-purple-200/70"
                 }`}
               >
                 {cat}
@@ -238,21 +238,21 @@ export default function PricingPage() {
                     transition={{ duration: 0.35 }}
                     className="bg-white border border-purple-400/30 rounded-3xl p-8 text-left shadow-lg hover:shadow-2xl hover:border-purple-500/60 transition-all duration-300 hover:scale-[1.02]"
                   >
-                    <h4 className="text-lg font-semibold text-purple-600 mb-2">
+                    <h4 className="text-lg font-semibold text-[#0047D6] mb-2">
                       {plan.category}
                     </h4>
-                    <h3 className="text-2xl font-bold text-purple-900 mb-4">
+                    <h3 className="text-2xl font-bold text-[#0047D6] mb-4">
                       {plan.title}
                     </h3>
-                    <p className="text-5xl font-extrabold mb-1 text-purple-700">
+                    <p className="text-5xl font-extrabold mb-1 text-[#0047D6]">
                       {plan.price}
                     </p>
-                    <p className="text-purple-500 mb-6">{plan.period}</p>
+                    <p className="text-[#0047D6] mb-6">{plan.period}</p>
                     <ul className="space-y-3 mb-8">
                       {plan.features.map((feature, idx) => (
                         <li
                           key={idx}
-                          className="flex items-center text-purple-800/90"
+                          className="flex items-center text-[#0047D6]"
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -268,7 +268,7 @@ export default function PricingPage() {
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="w-full py-3 rounded-full bg-purple-600 text-white font-semibold hover:bg-purple-700 transition duration-300"
+                      className="w-full py-3 rounded-full bg-[#0047D6] text-white font-semibold hover:bg-[#0342be] transition duration-300"
                     >
                       Start Now
                     </motion.button>

@@ -123,17 +123,17 @@ export default function SocialMediaPresencePage() {
         <div className="flex flex-col md:flex-row items-center justify-between px-8 md:px-46 py-16 md:py-24 gap-12 md:gap-20">
           {/* Left */}
           <div className="flex flex-col md:w-1/2 space-y-6">
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight text-gray-700">
               Grow Your Brand with Engaging Social Content 🚀
             </h1>
-            <p className="text-gray-900 text-lg leading-relaxed">
+            <p className="text-white/80 text-lg leading-relaxed">
               We craft social media strategies and content that increase reach, engagement, and conversions across all platforms.
             </p>
             <div className="flex gap-4 pt-4 text-white">
-              <button className="px-10 py-3 bg-purple-500 rounded-lg font-medium hover:bg-purple-600 transition">
+              <button className="px-10 py-3 bg-[#0047d6] rounded-lg font-medium hover:bg-purple-600 transition">
                 Start a Campaign
               </button>
-              <button className="px-6 py-3 bg-black rounded-lg font-medium hover:bg-gray-600 transition">
+              <button className="px-6 py-3 bg-gray-700 rounded-lg font-medium hover:bg-gray-600 transition">
                 View Portfolio
               </button>
             </div>
@@ -161,7 +161,7 @@ export default function SocialMediaPresencePage() {
                   <div className="mb-6">
                       <Heading text={"Social Media Services"}/>
             </div>
-          <p className="text-gray-600 max-w-2xl mx-auto mb-16">
+          <p className="text-gray-700 max-w-2xl mx-auto mb-16">
             Strategies and content that drive real engagement and ROI for your brand.
           </p>
 

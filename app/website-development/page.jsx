@@ -129,17 +129,17 @@ export default function WebsiteDevelopmentPage() {
         <div className="flex flex-col md:flex-row items-center justify-between px-8 md:px-46 py-16 md:py-24 gap-12 md:gap-20">
           {/* Left */}
           <div className="flex flex-col md:w-1/2 space-y-6">
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight">
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight text-gray-700">
               Build Digital Experiences That Inspire 🚀
             </h1>
-            <p className="text-gray-900 text-lg leading-relaxed">
+            <p className=" text-lg leading-relaxed text-white/80">
               We design and develop websites that are not just visually stunning — but fast, scalable, and built to convert.
             </p>
             <div className="flex gap-4 pt-4 text-white">
-              <button className="px-10 py-3 bg-purple-500 rounded-lg font-medium hover:bg-purple-600 transition">
+              <button className="px-10 py-3 bg-[#0047d6] rounded-lg font-medium hover:bg-[#0640b4] transition">
                 Start a Project
               </button>
-              <button className="px-6 py-3 bg-black rounded-lg font-medium hover:bg-gray-600 transition">
+              <button className="px-6 py-3 bg-gray-700  rounded-lg font-medium hover:bg-gray-600 transition">
                 View Portfolio
               </button>
             </div>
@@ -167,7 +167,7 @@ export default function WebsiteDevelopmentPage() {
                   <div className="mb-6">
                       <Heading text={"Our Web Development Workflow"}/>
             </div>
-          <p className="text-gray-600 max-w-2xl mx-auto mb-16">
+          <p className="text-gray-700 max-w-2xl mx-auto mb-16">
             A strategic, design-driven approach that ensures your website looks amazing and performs flawlessly.
           </p>
 
@@ -199,7 +199,7 @@ export default function WebsiteDevelopmentPage() {
                 <div className="mb-6">
                     <Heading text={"Technologies We Use"}/>
           </div>
-          <p className="text-gray-600 max-w-2xl mx-auto mb-16">
+          <p className="text-gray-700 max-w-2xl mx-auto mb-16">
             We use modern frameworks and technologies to build fast, reliable, and scalable digital products.
           </p>
 
@@ -235,7 +235,7 @@ export default function WebsiteDevelopmentPage() {
                 <div className="mb-6">
                     <Heading text={"Flexible Web Plans"}/>
           </div>
-          <p className="text-gray-600 max-w-2xl mx-auto mb-16">
+          <p className="text-gray-700 max-w-2xl mx-auto mb-16">
             Transparent pricing for startups, creators, and growing brands.
           </p>
 

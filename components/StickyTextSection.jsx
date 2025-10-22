@@ -16,17 +16,21 @@ export default function StickyTextSection() {
   ];
 
   return (
+
+
+
     <section
-      className={`${poppins.className} w-full max-w-7xl mx-auto px-4 py-16`}
-    >
+      className={`${poppins.className} w-full max-w-7xl mx-auto px-4 py-16 
+      `}
+      >
       <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
         {/* Left Column: Sticky Text */}
         <div className="md:col-span-1">
           <div className="md:sticky top-24">
-            <p className="text-2xl mb-2">✌️ Explore Our Youtube Videos</p>
-            <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-gray-800 leading-tight">
+            <p className="text-2xl mb-2 ">  Explore Our Youtube Videos</p>
+            <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-gray-700 leading-tight">
               We have <br />
-              <span className="text-[#6E11B0]">
+              <span className="text-white/90 ">
                 THE BEST CONTENT FULFILMENT TEAM
               </span>
             </h2>
@@ -37,10 +41,10 @@ export default function StickyTextSection() {
             </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
-  <Link href="/contact" className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-xl font-semibold shadow-md transition-all duration-300 text-center">
+  <Link href="/contact" className="bg-[#0047d6]  hover:bg-[#013294] text-white px-6 py-3 rounded-xl font-semibold shadow-md transition-all duration-300 text-center">
     Work with us
   </Link>
-  <Link href="/book-call" className="border border-purple-400 text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-900/20 px-6 py-3 rounded-xl font-semibold transition-all duration-300 text-center">
+  <Link href="/book-call" className=" border  text-white/80 hover:bg-[#3f46a1]  px-6 py-3 rounded-xl font-semibold transition-all duration-300 text-center">
     BOOK A CALL
   </Link>
 </div>
@@ -53,8 +57,8 @@ export default function StickyTextSection() {
           <div className="w-full max-w-3xl flex flex-col gap-8">
             {videos.map((video) => (
               <div
-                key={video.id}
-                className="bg-neutral-900 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300"
+              key={video.id}
+              className="bg-neutral-900 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-shadow duration-300"
               >
                 {/* Video Container (16:9 ratio) */}
                 <div className="relative w-full pb-[56.25%]">
@@ -64,7 +68,7 @@ export default function StickyTextSection() {
                     title={video.title}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
-                  ></iframe>
+                    ></iframe>
                 </div>
 
                 {/* Video Info */}
@@ -83,5 +87,6 @@ export default function StickyTextSection() {
         </div>
       </div>
     </section>
+           
   );
 }

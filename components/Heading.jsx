@@ -18,7 +18,7 @@ const playfair = Playfair_Display({
 export const Heading = ({ text, className }) => {
   return (
     <h1
-      className={`${spaceGrotesk.className} mx-auto max-w-5xl text-center text-3xl font-extrabold text-purple-800 md:text-5xl lg:text-7xl ${className}`}
+      className={`${spaceGrotesk.className} mx-auto max-w-5xl text-center text-3xl font-extrabold text-white/90 md:text-5xl lg:text-7xl ${className}`}
     >
       {text.split(" ").map((word, index) => (
         <motion.span

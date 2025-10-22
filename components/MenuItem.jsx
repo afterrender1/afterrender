@@ -87,7 +87,7 @@ useEffect(() => {
   return (
   <nav
   suppressHydrationWarning
-  className={`fixed w-full z-[100] flex flex-wrap items-center justify-around rounded-b-4xl px-6 py-3 text-neutral-800 transition-all duration-300
+  className={`fixed w-full z-[100] flex flex-wrap items-center justify-around rounded-b-4xl px-6 py-3 text-white transition-all duration-300
     ${mounted && scrolled ? "bg-white/90 text-white dark:bg-black/40 backdrop-blur-md shadow-md" : "bg-transparent"}
     hover:scale-110`}
 >
@@ -113,7 +113,7 @@ useEffect(() => {
       </Link>
 
       {/* Center — Links (visible on md and up) */}
-      <div className={`"hidden md:flex flex-wrap justify-center gap-6 text-black"`}>
+      <div className="hidden md:flex flex-wrap justify-center gap-6 text-white">
         {children}
       </div>
 
@@ -123,11 +123,8 @@ useEffect(() => {
     <div
       className={`
         ${poppins.className}
-        flex items-center gap-3 px-8 py-3 rounded-2xl font-semibold text-white
-        bg-gradient-to-r from-purple-500 via-purple-600 to-purple-500
-        shadow-[0_0_25px_rgba(168,85,247,0.4)]
-        hover:shadow-[0_0_40px_rgba(217,70,239,0.6)]
-        hover:from-purple-800 hover:to-purple-600
+        flex items-center gap-3 px-8 py-3 rounded-lg font-semibold text-white
+        bg-[#0047d6]
         transition-all duration-500 ease-out
         backdrop-blur-md relative overflow-hidden
       `}

@@ -126,7 +126,7 @@ export default function PortfolioPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-gray-800 max-w-2xl mx-auto mb-16 text-lg mt-5"
+            className="text-gray-700 max-w-2xl mx-auto mb-16 text-lg mt-5"
           >
             A showcase of our work in design, development, and video production — blending creativity with results.
           </motion.p>

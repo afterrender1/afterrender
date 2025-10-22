@@ -37,32 +37,34 @@ useEffect(() => {
   if (randomRotations.length === 0) return null;
 
   return (
+  
+ 
+
     <motion.div
       initial={{ opacity: 0, filter: "blur(10px)", y: 30 }}
       animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
       transition={{ duration: 0.8, ease: "easeInOut" }}
-      className="mx-auto max-w-sm px-4 py-20 my-40 font-sans antialiased md:max-w-6xl md:px-8 lg:px-12
-                 rounded-3xl relative overflow-hidden"
+      className="mx-auto max-w-sm px-4 py-20 my-40 font-sans antialiased md:max-w-6xl md:px-8 lg:px-12 
+      rounded-3xl relative overflow-hidden"
       style={{
         backgroundImage: "url('/testimonialbg.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
-    >
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/20 rounded-3xl"></div>
+      >     {/* Overlay */}
+      <div className="absolute inset-0 bg-black/20 rounded-3xl "></div>
 
       {/* Hero Heading & Subheading */}
-      <div className="relative z-10 text-center mb-12">
+      <div className="relative z-10 text-center mb-12 ">
         <h1 className={`${spaceGrotesk.className} text-3xl md:text-5xl lg:text-6xl font-extrabold text-white`}>
           {heroHeading.split(" ").map((word, index) => (
             <motion.span
-              key={index}
-              initial={{ opacity: 0, filter: "blur(4px)", y: 10 }}
-              animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-              transition={{ duration: 0.4, delay: index * 0.12, ease: "easeInOut" }}
-              className="inline-block mr-2"
+            key={index}
+            initial={{ opacity: 0, filter: "blur(4px)", y: 10 }}
+            animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+            transition={{ duration: 0.4, delay: index * 0.12, ease: "easeInOut" }}
+            className="inline-block mr-2"
             >
               {word}
             </motion.span>
@@ -73,7 +75,7 @@ useEffect(() => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-        >
+          >
           {heroSubheading}
         </motion.p>
       </div>
@@ -84,32 +86,32 @@ useEffect(() => {
         animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
         transition={{ duration: 0.9, delay: 0.4, ease: "easeOut" }}
         className="relative grid grid-cols-1 gap-20 md:grid-cols-2"
-      >
+        >
         {/* Left Side (Images) */}
    <div className="relative h-80 w-full flex items-center justify-center">
   <AnimatePresence>
     {testimonials.map((testimonial, index) => (
       <motion.div
-        key={testimonial.src}
-        initial={{
-          opacity: 0,
-          scale: 0.9,
-          z: -100,
-          rotate: randomRotations[index],
-        }}
-        animate={{
-          opacity: isActive(index) ? 1 : 0.7,
-          scale: isActive(index) ? 1 : 0.95,
-          z: isActive(index) ? 0 : -100,
-          rotate: isActive(index) ? 0 : randomRotations[index],
-          zIndex: isActive(index)
-            ? 40
-            : testimonials.length + 2 - index,
-          y: isActive(index) ? [0, -40, 0] : 0, // subtle bounce
-        }}
-        exit={{ opacity: 0, scale: 0.8 }}
-        transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="absolute inset-0 flex items-center justify-center origin-bottom"
+      key={testimonial.src}
+      initial={{
+        opacity: 0,
+        scale: 0.9,
+        z: -100,
+        rotate: randomRotations[index],
+      }}
+      animate={{
+        opacity: isActive(index) ? 1 : 0.7,
+        scale: isActive(index) ? 1 : 0.95,
+        z: isActive(index) ? 0 : -100,
+        rotate: isActive(index) ? 0 : randomRotations[index],
+        zIndex: isActive(index)
+        ? 40
+        : testimonials.length + 2 - index,
+        y: isActive(index) ? [0, -40, 0] : 0, // subtle bounce
+      }}
+      exit={{ opacity: 0, scale: 0.8 }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
+      className="absolute inset-0 flex items-center justify-center origin-bottom"
       >
         <div className="relative h-80 w-full max-w-md mx-auto overflow-hidden rounded-3xl shadow-2xl bg-white/5 backdrop-blur-md border border-white/10">
           <img
@@ -117,7 +119,7 @@ useEffect(() => {
             alt={testimonial.name}
             className="h-full w-full object-contain object-center "
             draggable={false}
-          />
+            />
         </div>
       </motion.div>
     ))}
@@ -132,7 +134,7 @@ useEffect(() => {
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.2, ease: "easeInOut" }}
-          >
+            >
             <h3 className={`${playfair.className} text-2xl font-bold text-white`}>
               {testimonials[active].name}
             </h3>
@@ -140,11 +142,11 @@ useEffect(() => {
             <motion.p className="mt-8 text-lg text-gray-100">
               {testimonials[active].quote.split(" ").map((word, index) => (
                 <motion.span
-                  key={index}
-                  initial={{ filter: "blur(10px)", opacity: 0, y: 5 }}
-                  animate={{ filter: "blur(0px)", opacity: 1, y: 0 }}
-                  transition={{ duration: 0.2, ease: "easeInOut", delay: 0.02 * index }}
-                  className="inline-block"
+                key={index}
+                initial={{ filter: "blur(10px)", opacity: 0, y: 5 }}
+                animate={{ filter: "blur(0px)", opacity: 1, y: 0 }}
+                transition={{ duration: 0.2, ease: "easeInOut", delay: 0.02 * index }}
+                className="inline-block"
                 >
                   {word}&nbsp;
                 </motion.span>
@@ -164,6 +166,7 @@ useEffect(() => {
         </div>
       </motion.div>
     </motion.div>
+            
   );
 };
 

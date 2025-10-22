@@ -136,7 +136,7 @@ console.log(formData);
       {/* HERO */}
       <section className="relative z-10 pt-32 text-center text-gray-700">
         <Heading text="Contact Us" />
-        <p className="text-lg md:text-xl max-w-2xl mx-auto mt-4">
+        <p className="text-lg md:text-xl max-w-2xl mx-auto mt-4 ">
           Have a question or want to start a project? Fill out the form below and we’ll get back to you.
         </p>
       </section>
@@ -207,7 +207,7 @@ console.log(formData);
 
           <button
             type="submit"
-            className="bg-purple-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-purple-600 transition-all duration-300"
+            className="bg-[#0047d6] text-white font-semibold px-6 py-3 rounded-lg hover:bg-[#01349b] transition-all duration-300"
           >
             Send Message
           </button>

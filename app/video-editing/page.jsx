@@ -131,19 +131,19 @@ export default function VideoEditingPage() {
           
           {/* Left Section */}
           <div className="flex flex-col md:w-1/2 space-y-6">
-            <h1 className="text-4xl md:text-6xl font-bold leading-tight ">
+            <h1 className="text-4xl md:text-6xl font-bold leading-tight text-gray-700 ">
               Craft Your Story, <br /> Frame by Frame.
             </h1>
-            <p className="text-gray-900 text-lg leading-relaxed">
+            <p className=" text-lg leading-relaxed text-white/80">
               The next-generation video editor that empowers you to create breathtaking cinematic experiences. 
               Intuitive, powerful, and built for the future of filmmaking.
             </p>
 
             <div className="flex gap-4 pt-4 text-white">
-              <button className="px-18 py-3 bg-[#b398f1] rounded-lg font-medium hover:bg-purple-500 transition">
+              <button className="px-18 py-3 bg-[#0047d6] rounded-lg font-medium hover:bg-[#0d3a94] transition">
                 Get Start
               </button>
-              <button className="px-6 py-3 bg-black rounded-lg font-medium hover:bg-gray-600 transition">
+              <button className="px-6 py-3 bg-gray-700 rounded-lg font-medium hover:bg-gray-600 transition">
                 Watch Demo
               </button>
             </div>
@@ -172,7 +172,7 @@ export default function VideoEditingPage() {
               <div className="mb-6">
             <Heading text={"Video Editing Workflow"}/>
   </div>
-      <p className="text-gray-600 max-w-2xl mx-auto">
+      <p className="text-gray-700 max-w-2xl mx-auto">
         From import to final export — a seamless creative journey powered by precision and style.
       </p>
     </div>
@@ -185,7 +185,7 @@ export default function VideoEditingPage() {
           1
         </div>
         <h3 className="text-xl font-semibold mb-2">Import Footage</h3>
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-gray-700">
           Bring your raw clips into the workspace and start your creative process.
         </p>
       </div>
@@ -328,7 +328,7 @@ export default function VideoEditingPage() {
               <div className="mb-6">
             <Heading text={"Simple , Transparent Pricing"}/>
   </div>
-      <p className="text-gray-600 max-w-2xl mx-auto">
+      <p className="text-gray-700 max-w-2xl mx-auto">
         Choose a plan that matches your editing goals — no hidden fees, just pure creativity.
       </p>
     </div>

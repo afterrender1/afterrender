@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Menu, MenuItem, ProductItem } from "@/components/MenuItem";
 import { useState, useEffect } from "react";
-import { AnimatedTestimonials } from "@/components/Testimonials";
+import  AnimatedTestimonials  from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import StickyTextSection from "@/components/StickyTextSection";
@@ -13,6 +13,7 @@ import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import { motion } from "framer-motion";
 import { Playfair_Display, Space_Grotesk } from "next/font/google";
 import { MdContactSupport } from "react-icons/md";
+import YouTubeShortsSection from "@/components/Ytshorts";
 
 
 const spaceGrotesk = Space_Grotesk({
@@ -137,7 +138,7 @@ export default function Home() {
       </div>
 
       {/* Testimonials */}
-      <section className="px-4 sm:px-10 md:px-20 py-16  text-white">
+      {/* <section className="px-4 sm:px-10 md:px-20 py-16  text-white">
         <AnimatedTestimonials
           testimonials={[
             {
@@ -157,14 +158,15 @@ export default function Home() {
           ]}
           autoplay
         />
-      </section>
+      </section> */}
+      <YouTubeShortsSection/>
 
   
 
     
       <StickyTextSection />
       <StepSection />
-
+<AnimatedTestimonials/>
       {/* Footer */}
       <Footer />
     </>

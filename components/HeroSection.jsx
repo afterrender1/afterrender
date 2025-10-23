@@ -124,37 +124,46 @@ export default function HeroSection() {
           (Say no to Freelance Video Editors)
         </h4>
 
-        <section className="relative flex flex-col md:flex-row items-center justify-center bg-transparent overflow-hidden w-full mt-10">
-          <motion.div
-            className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.02)_0%,_transparent_80%)] pointer-events-none"
-            animate={{
-              scale: [1, 1.05, 1],
-              opacity: [0.2, 0.35, 0.2],
-            }}
-            transition={{
-              duration: 12,
-              repeat: Infinity,
-              repeatType: "mirror",
-              ease: "easeInOut",
-            }}
-          />
+<section className="relative flex flex-col md:flex-row items-center justify-center bg-transparent w-full mt-10">
+  {/* Subtle animated light background */}
+  <motion.div
+    className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,255,255,0.02)_0%,_transparent_80%)] pointer-events-none"
+    animate={{
+      scale: [1, 1.05, 1],
+      opacity: [0.2, 0.35, 0.2],
+    }}
+    transition={{
+      duration: 12,
+      repeat: Infinity,
+      repeatType: "mirror",
+      ease: "easeInOut",
+    }}
+  />
 
-          <div className="w-full md:w-[60%] flex justify-center items-center z-10 my-8 md:my-0">
-            <div className="relative w-[90%] sm:w-[85%] md:w-[80%] aspect-video overflow-hidden shadow-2xl rounded-2xl">
-              <video
-                src="/herovideo.mp4"
-                autoPlay
-                loop
-                muted
-                playsInline
-                className="w-full h-full object-contain"
-              />
-            </div>
-          </div>
-        </section>
+  {/* Video container */}
+  <div className="w-full md:w-[60%] flex justify-center items-center z-10 my-8 md:my-0">
+    <div className="relative w-[90%] sm:w-[85%] md:w-[80%] aspect-video rounded-2xl m-4">
+      {/* background glow behind video */}
+      <div className="absolute inset-0 bg-black/40 blur-3xl scale-105 -z-10 rounded-3xl"></div>
+
+      {/* main video box */}
+      <div className="relative overflow-hidden rounded-2xl shadow-[0_25px_70px_rgba(0,0,0,0.50)]">
+        <video
+          src="/herovideo.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-contain"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
       </div>
 
-      <div className="flex flex-col sm:flex-row gap-4 py-5 items-center justify-center">
+      <div className="flex flex-col sm:flex-row gap-4 py-9 items-center justify-center">
         <motion.button
           whileHover={{
             scale: 1.05,

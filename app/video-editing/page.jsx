@@ -224,6 +224,75 @@ export default function VideoEditingPage() {
           </div>
         </div>
       </section>
+        {/* TOOLS SECTION */}
+            <section className="relative z-10 py-20 text-gray-900">
+              <div className="max-w-6xl mx-auto px-6 text-center">
+                <Heading text="Technologies We Use" />
+                <p className="text-gray-700 max-w-2xl mx-auto mb-10 sm:mb-16 text-sm sm:text-base">
+                  We use modern frameworks and technologies to build fast, reliable, and scalable digital products.
+                </p>
+      
+                <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
+                  {[
+                    { name: "Next.js", img: "/logos/aelogo.png" },
+                    { name: "React", img: "/logos/ailogo.png" },
+                    { name: "Tailwind CSS", img: "/logos/cclogo.png" },
+                    { name: "Node.js", img: "/logos/gsheetslogo.png" },
+                    { name: "Firebase", img: "/logos/lrlogo.png" },
+                    { name: "MongoDB", img: "/logos/dvlogo.png" },
+                  ].map((tool) => (
+                    <div
+                      key={tool.name}
+                      className="group relative cursor-pointer bg-white w-52 sm:w-64 h-72 sm:h-80 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-500"
+                    >
+                      <div className="flex items-center justify-center h-full">
+                        <img src={tool.img} alt={tool.name} className="w-16 sm:w-20 h-16 sm:h-20" />
+                      </div>
+                      <div className="absolute bg-white -bottom-24 sm:-bottom-28 w-full p-4 sm:p-5 flex flex-col gap-2 rounded-t-3xl hover:bg-purple-100 group-hover:bottom-0 transition-all duration-500 shadow-lg">
+                        <span className="text-black font-bold text-xl sm:text-2xl">{tool.name}</span>
+                        <p className="text-gray-600 text-xs sm:text-sm">Empowering modern, scalable web apps.</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+      
+            {/* PRICING SECTION */}
+            <section className="relative z-10 py-20 text-gray-900">
+              <div className="max-w-6xl mx-auto px-6 text-center">
+                <Heading text="Flexible Web Plans" />
+                <p className="text-gray-700 max-w-2xl mx-auto mb-10 sm:mb-16 text-sm sm:text-base">
+                  Transparent pricing for startups, creators, and growing brands.
+                </p>
+      
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
+                  {[
+                    { title: "Starter", price: "$499", features: ["Landing Page", "Responsive Design", "Basic SEO"] },
+                    { title: "Business", price: "$999", features: ["Up to 10 Pages", "CMS Integration", "Speed Optimization"] },
+                    { title: "Enterprise", price: "$1999", features: ["E-commerce", "Custom API", "Advanced SEO & Support"] },
+                  ].map((plan) => (
+                    <div
+                      key={plan.title}
+                      className="bg-gray-50 border border-gray-200 p-8 sm:p-10 rounded-3xl shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-500"
+                    >
+                      <h3 className="text-2xl font-semibold mb-3">{plan.title}</h3>
+                      <span className="block text-4xl sm:text-5xl font-bold text-gray-800 mb-3">{plan.price}</span>
+                      <p className="text-gray-600 mb-6 text-sm sm:text-base">One-time setup fee</p>
+                      <button className="relative group inline-block w-full py-4 px-6 text-center bg-purple-300 text-gray-800 hover:text-white font-semibold rounded-full overflow-hidden transition duration-300">
+                        <div className="absolute top-0 right-full w-full h-full bg-gray-900 transform group-hover:translate-x-full transition duration-500"></div>
+                        <span className="relative">Get Started</span>
+                      </button>
+                      <ul className="mt-6 text-left text-gray-700 space-y-2 text-sm sm:text-base">
+                        {plan.features.map((f) => (
+                          <li key={f}>✔ {f}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
 
       {/* CTA SECTION */}
       <section className="relative py-20 sm:py-24 text-white overflow-hidden">

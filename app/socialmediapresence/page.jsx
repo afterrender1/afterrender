@@ -108,10 +108,11 @@ export default function SocialMediaPresencePage() {
 
       {/* ========== HERO SECTION ========== */}
       <section className="relative z-10 pt-28 md:pt-36">
+            <Heading text="Social Media Presence" />
+
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 flex flex-col md:flex-row items-center justify-between gap-10 md:gap-20 py-12 md:py-20">
           {/* Left Content */}
           <div className="flex flex-col md:w-1/2 space-y-6 text-center md:text-left">
-            <Heading text="Social Media Presence" />
             <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold leading-tight text-gray-700">
               Grow Your Brand with Engaging Social Content 🚀
             </h1>

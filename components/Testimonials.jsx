@@ -1,151 +1,160 @@
 "use client";
 
-import React from "react";
+import React, { useCallback, useEffect } from "react";
 import { motion } from "framer-motion";
+import useEmblaCarousel from "embla-carousel-react";
+import Autoplay from "embla-carousel-autoplay";
+import Image from "next/image";
+import { IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 import { Playfair_Display, Space_Grotesk } from "next/font/google";
-import { IconStarFilled } from "@tabler/icons-react";
 
 const playfair = Playfair_Display({ subsets: ["latin"], weight: ["700"] });
 const spaceGrotesk = Space_Grotesk({ subsets: ["latin"], weight: ["400", "500", "700"] });
 
-// Animation variants
-const containerVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: (delay = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.6,
-      delay,
+export default function TestimonialsPaperCarousel() {
+  // Autoplay plugin setup
+  const autoplay = Autoplay({ delay: 4000, stopOnInteraction: false });
+  const [emblaRef, emblaApi] = useEmblaCarousel(
+    {
+      loop: true,
+      align: "center",
+      skipSnaps: false,
+      duration: 25, // smoother + faster transition
     },
-  }),
-};
+    [autoplay]
+  );
 
-const imageVariants = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.5, ease: "easeOut" },
-  },
-};
+  const scrollPrev = useCallback(() => {
+    autoplay.stop();
+    emblaApi && emblaApi.scrollPrev();
+  }, [emblaApi, autoplay]);
 
-const textVariants = {
-  hidden: { opacity: 0, y: 10 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, delay: 0.5 },
-  },
-};
+  const scrollNext = useCallback(() => {
+    autoplay.stop();
+    emblaApi && emblaApi.scrollNext();
+  }, [emblaApi, autoplay]);
 
-export default function TestimonialsGrid() {
+  // Restart autoplay after interaction
+  useEffect(() => {
+    if (!emblaApi) return;
+    emblaApi.on("select", () => autoplay.reset());
+  }, [emblaApi, autoplay]);
+
   const testimonials = [
     {
       id: 1,
-      name: "John Doe",
-      designation: "CEO, Company A",
-      quote: "AfterRender transformed our creative workflow. The results are amazing!",
-      src: "/images/testimonial1.png",
-      rating: 5,
+      name: "Raj M.",
+      designation: "Founder of ArtisanMarket",
+      quote:
+        "We were struggling with high cart abandonment rates, but after their UX revamp, our conversion rate jumped by 50%. Their data-driven approach made all the difference.",
+      avatar: "/images/testimonial1.png",
     },
     {
       id: 2,
-      name: "Jane Smith",
-      designation: "Marketing Head, Company B",
-      quote: "Their AI-powered tools saved us hours of work and boosted engagement.",
-      src: "/images/testimonial2.jpg",
-      rating: 4,
+      name: "Mike P.",
+      designation: "Director of Communications, GreenFuture Foundation",
+      quote:
+        "Our website became more engaging for a diverse audience. They transformed our vision into a platform that helps us connect with more donors.",
+      avatar: "/images/testimonials2.png",
     },
     {
       id: 3,
-      name: "Michael Johnson",
-      designation: "Founder, Startup C",
-      quote: "Working with AfterRender was seamless — highly recommended!",
-      src: "/images/testimonial3.jpg",
-      rating: 5,
+      name: "Sara L.",
+      designation: "CEO of NovaTech",
+      quote:
+        "As a fast-growing SaaS company, we needed a reliable partner who could scale with us. They delivered a sleek product experience that wowed our investors.",
+      avatar: "/images/testmonial4.png",
     },
     {
       id: 4,
-      name: "Sophia Williams",
-      designation: "Designer, Studio D",
-      quote: "A perfect balance between creativity and efficiency!",
-      src: "/images/testimonial4.jpg",
-      rating: 4,
-    },
-    {
-      id: 5,
-      name: "Daniel Brown",
-      designation: "Developer, Tech E",
-      quote: "Super intuitive and easy to use — a must-have for teams.",
-      src: "/images/testimonial5.jpg",
-      rating: 5,
+      name: "Ethan R.",
+      designation: "Marketing Director, FlowMetrics",
+      quote:
+        "They took our outdated dashboard and turned it into a responsive, user-friendly experience that our customers love.",
+      avatar: "/images/testimonials3.png",
     },
   ];
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 py-16">
-      <div className="w-full max-w-7xl mx-auto text-center">
+    <section className="min-h-screen flex flex-col items-center justify-center px-6 py-20 relative overflow-hidden">
+      <div className="w-full max-w-7xl text-center">
         {/* Heading */}
         <h2
-          className={`${spaceGrotesk.className} text-3xl sm:text-4xl md:text-5xl font-extrabold text-white/80 mb-6`}
+          className={`${spaceGrotesk.className} text-3xl sm:text-4xl md:text-6xl font-bold text-white/80 mb-4`}
         >
-         Testimonials
+          Testimonials
         </h2>
-        <p className={`${playfair.className} text-gray-600 mb-16 max-w-2xl mx-auto`}>
-          With AfterRender’s AI-powered tools, you can bring your creative ideas to life — design and deploy stunning web experiences in just minutes.
+        <p
+          className={`${spaceGrotesk.className} text-gray-800 mb-10 max-w-2xl mx-auto`}
+        >
+          From SaaS startups to non-profits. 2000+ happy clients. Still counting.
         </p>
 
-        {/* Custom Grid Layout */}
-        <div className="grid grid-cols-3 grid-rows-5 gap-6 max-w-6xl mx-auto">
-          {testimonials.map((t, i) => {
-            const gridPositions = [
-              "row-span-3",
-              "col-span-2 row-span-2",
-              "row-span-3 col-start-3 row-start-3",
-              "col-span-2 row-span-2 col-start-1 row-start-4",
-              "col-start-2 row-start-3",
-            ];
-            return (
-              <motion.div
-                key={t.id}
-                className={`bg-neutral-900/60 backdrop-blur-2xl  rounded-3xl shadow-xl p-6 flex flex-col items-center justify-center  ${gridPositions[i]}`}
-                variants={containerVariants}
-                initial="hidden"
-                animate="visible"
-                custom={0.1 * (i + 1)} // delay stagger for each box
-              >
-                {/* Image */}
-                <motion.img
-                  src={t.src}
-                  alt={t.name}
-                  className="w-24 h-24 rounded-full object-cover mb-4"
-                  variants={imageVariants}
-                  initial="hidden"
-                  animate="visible"
-                />
+ 
 
-                {/* Text + Stars */}
+        {/* Carousel Container */}
+        <div className="relative">
+          {/* Navigation Buttons */}
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={scrollPrev}
+            className="absolute left-0 md:-left-10 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-gray-700 p-3 rounded-full shadow-md z-10 transition"
+          >
+            <IconChevronLeft size={28} />
+          </motion.button>
+
+          <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={scrollNext}
+            className="absolute right-0 md:-right-10 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white text-gray-700 p-3 rounded-full shadow-md z-10 transition"
+          >
+            <IconChevronRight size={28} />
+          </motion.button>
+
+          {/* Embla Carousel */}
+          <div className="overflow-hidden" ref={emblaRef}>
+            <div className="flex">
+              {testimonials.map((t, i) => (
                 <motion.div
-                  variants={textVariants}
-                  initial="hidden"
-                  animate="visible"
-                  className="flex flex-col items-center"
+                  key={t.id}
+                  className="flex-[0_0_100%] sm:flex-[0_0_80%] md:flex-[0_0_45%] px-4 my-6 cursor-pointer"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: i * 0.05 }}
                 >
-                  <h3 className={`${playfair.className} text-xl font-semibold text-white/80`}>
-                    {t.name}
-                  </h3>
-                  <p className="text-sm text-white/80">{t.designation}</p>
-                  <div className="flex justify-center gap-1 mt-2 mb-3">
-                    {[...Array(t.rating)].map((_, idx) => (
-                      <IconStarFilled key={idx} className="w-4 h-4 text-yellow-400" />
-                    ))}
-                  </div>
-                  <p className="text-white/80 italic leading-relaxed">"{t.quote}"</p>
+                  <motion.div
+                    whileHover={{ rotate: 0 }}
+                    initial={{ rotate: i % 2 === 0 ? -1.5 : 1.5 }}
+                    className="bg-white/80 rounded-xl shadow-xl border border-gray-200 p-20 text-left relative transform transition-transform"
+                  >
+                    <p className="text-gray-700 mb-6 leading-relaxed italic">
+                      “{t.quote}”
+                    </p>
+
+                    <div className="flex items-center mt-6">
+                      <Image
+                        src={t.avatar}
+                        alt={t.name}
+                        width={50}
+                        height={50}
+                        className="rounded-full object-cover mr-4"
+                      />
+                      <div>
+                        <h4
+                          className={`${playfair.className} text-gray-900 font-semibold`}
+                        >
+                          {t.name}
+                        </h4>
+                        <p className="text-gray-600 text-sm">{t.designation}</p>
+                      </div>
+                    </div>
+                  </motion.div>
                 </motion.div>
-              </motion.div>
-            );
-          })}
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </section>
